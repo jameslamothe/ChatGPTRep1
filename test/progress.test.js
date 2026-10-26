@@ -77,3 +77,11 @@ test('a stale tab cannot introduce a third new card after two were saved',()=>{
  assert.throws(()=>b.rate('thai-2','good',now),/Daily new-card limit/);
  assert.equal(JSON.parse(storage.raw)['thai-2'],undefined);
 });
+test('whole-deck reset clears stored review and introduction history, then allows a fresh start',()=>{
+ const storage=memory();const store=createProgressStore(storage,ids);const now=Date.now();
+ store.rate('thai-0','good',now);store.rate('thai-1','again',now);
+ assert.equal(Object.keys(store.data).length,2);
+ assert.equal(store.replace({}),true);
+ assert.deepEqual(store.data,{});assert.deepEqual(createProgressStore(storage,ids).data,{});
+ store.rate('thai-0','good',now);assert.equal(store.data['thai-0'].reviews,1);
+});

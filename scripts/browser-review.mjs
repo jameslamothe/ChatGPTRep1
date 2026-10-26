@@ -5,7 +5,7 @@ const browser=await chromium.launch({...(process.env.CHROMIUM_PATH ? {executable
 const base=process.env.BASE_URL || 'http://localhost:3000';
 const key='little-thai-v1';
 const results=[];
-async function scenario(name,run){const context=await browser.newContext({viewport:{width:375,height:812},acceptDownloads:true,timezoneId:'Asia/Bangkok'});try{await run(context);results.push(name);console.log('PASS '+name);}finally{await context.close();}}
+async function scenario(name,run){if(process.env.SCENARIO_FILTER&&!name.includes(process.env.SCENARIO_FILTER))return;const context=await browser.newContext({viewport:{width:375,height:812},acceptDownloads:true,timezoneId:'Asia/Bangkok'});try{await run(context);results.push(name);console.log('PASS '+name);}finally{await context.close();}}
 async function upload(page,data,accept=true){
  page.once('dialog',d=>accept?d.accept():d.dismiss());
  await page.locator('#import').setInputFiles({name:'backup.json',mimeType:'application/json',buffer:Buffer.from(typeof data==='string'?data:JSON.stringify(data))});
@@ -230,5 +230,29 @@ await scenario('compact phone layout keeps Thai readable and controls easy to ta
   assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`expanded phone details overflow at ${width}`);
  }
 });
+await scenario('whole-deck reset confirms, persists, restores allowance and handles failed saves',async ctx=>{
+ const p=await ctx.newPage();await p.goto(base);
+ for(let i=0;i<2;i++){await p.locator('#reveal').click();await p.getByRole('button',{name:'Good 1 day',exact:true}).click();}
+ assert.equal(await p.locator('#due-count').innerText(),'0');
+ await p.locator('#browse-tab').click();assert.equal(await p.locator('#reset-progress').count(),1);
+ const before=await p.evaluate(()=>localStorage.getItem('little-thai-v1'));
+ p.once('dialog',d=>d.dismiss());await p.locator('#reset-progress').click();
+ assert.equal(await p.evaluate(()=>localStorage.getItem('little-thai-v1')),before);
+ assert.equal(await p.locator('#learned-count').innerText(),'2');
+ p.once('dialog',d=>{assert.match(d.message(),/all 44/);d.accept();});await p.locator('#reset-progress').click();
+ assert.equal(await p.locator('#study-tab').getAttribute('aria-pressed'),'true');
+ assert.equal(await p.locator('#learned-count').innerText(),'0');
+ assert.equal(await p.locator('#due-count').innerText(),'2');
+ assert.match(await p.locator('#new-card-progress').innerText(),/0 of 2/);
+ assert.equal(await p.locator('.character').innerText(),'ก');
+ assert.equal(await p.evaluate(()=>localStorage.getItem('little-thai-v1')),'{}');
+ await p.reload();assert.equal(await p.locator('#learned-count').innerText(),'0');
+ await p.locator('#reveal').click();await p.getByRole('button',{name:'Good 1 day',exact:true}).click();
+ await p.evaluate(()=>{Storage.prototype.setItem=function(){throw new DOMException('Denied','QuotaExceededError');};});
+ p.once('dialog',d=>d.accept());await p.locator('#reset-progress').click();
+ assert.equal(await p.locator('#learned-count').innerText(),'0');
+ assert.match(await p.locator('#message').innerText(),/session only/);
+ assert.notEqual(await p.evaluate(()=>localStorage.getItem('little-thai-v1')),'{}');
+});
 const response=await (await browser.newContext()).request.get(base+'/not-here.png');assert.equal(response.status(),404);console.log('PASS server missing-file response');
-await browser.close();console.log(`Completed ${results.length} browser scenarios plus HTTP check`);
+await browser.close();assert.ok(results.length>0,'No browser scenario matched SCENARIO_FILTER');console.log(`Completed ${results.length} browser scenarios plus HTTP check`);

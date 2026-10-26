@@ -99,3 +99,5 @@
 @media(max-width:800px){
  .starting-audio .audio-credit[open]{grid-column:1/-1;grid-row:auto}.audio-credit p{overflow-wrap:anywhere}
 }
+
+.reset-button{display:block;color:#8b4436;min-height:44px;margin-top:4px}

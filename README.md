@@ -41,3 +41,5 @@ Playback starts only on a tap and stops on card changes, leaving the page or hid
 On desktop, answers use two columns (character/picture and pronunciation) with a compact heading and collapsed study help. Phones retain a stacked answer. Browser regression checks verify that default answers and rating controls fit a 1366 × 768 desktop viewport for all 44 cards; expanding pronunciation or credit details may require scrolling.
 
 The compact phone view uses a short masthead, side-by-side character/picture, reduced whitespace and a smaller progress panel. Thai name text stays at 28px, the main character at 104px, and audio/rating tap targets at least 44px tall. Expanded details remain available and may require scrolling.
+
+“Reset all progress” resets the whole 44-card deck in this browser after confirmation, including review history, due dates and today’s new-card count. It preserves the two-card daily limit. Export a backup first if you may want to restore progress. A storage failure is reported explicitly; the reset then applies only to the current session.

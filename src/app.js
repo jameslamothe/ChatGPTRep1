@@ -89,6 +89,17 @@ document.querySelector('#study-tab').onclick=()=>{mode='study';render();};
 document.querySelector('#browse-tab').onclick=()=>{mode='browse';render();};
 document.addEventListener('keydown',e=>{if(e.code==='Space' && e.target===document.body && mode==='study' && current && !revealed){e.preventDefault();revealAnswer();}});
 document.querySelector('#export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(progress,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='little-thai-progress.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+document.querySelector('#reset-progress').onclick=()=>{
+ if(!confirm('Reset progress for all 44 cards? This clears review history, due dates, and today’s new-card count in this browser. The daily limit stays at 2. Export a backup first if you want to restore your progress later.'))return;
+ const saved=store.replace({});
+ progress=store.data;current=null;revealed=false;mode='study';
+ render();
+ document.querySelector('#message').textContent=saved
+  ? 'All card progress has been reset. You can start again with 2 new cards today.'
+  : 'Progress reset for this session only. Browser storage could not be updated; saved progress may return when you reload.';
+ content.querySelector('#reveal')?.focus({preventScroll:true});
+ content.scrollIntoView({block:'start'});
+};
 document.querySelector('#import-button').onclick=()=>document.querySelector('#import').click();
 document.querySelector('#import').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>100000)throw Error();const data=JSON.parse(await file.text());if(!validProgress(data,cards.map(c=>c.id)))throw Error();if(!confirm('Replace your current progress with this backup?'))return;const saved=store.replace(data);progress=store.data;current=null;render();document.querySelector('#message').textContent=saved?'Progress imported and saved.':'Progress imported for this session only. Export a backup before leaving.';}catch{document.querySelector('#message').textContent='Could not import. Choose a valid Little Thai progress backup.';}finally{e.target.value='';}};
 // Refresh a finished session when a review becomes due, without replacing focused controls.
