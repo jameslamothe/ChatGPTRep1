@@ -4,13 +4,13 @@ A small Thai consonant flashcard app with spaced repetition. Includes 44 consona
 
 ## Run
 
-Requires Node.js 20 or newer. No package installation or API keys are needed.
+Use Node.js 24 LTS (minimum 22.8 for the test runner). Running the app requires no package installation or API keys.
 
 ```sh
 npm start
 ```
 
-The server listens on port 3000 (override with `PORT`). Run checks with `npm test`.
+The server listens on port 3000 (override with `PORT`). Run the dependency-free checks with `npm test`.
 
 ## Learning
 
@@ -19,3 +19,12 @@ Begin with each character’s name and starting sound, reveal the answer, and ra
 Progress lives in localStorage in the current browser and site origin. Export a JSON backup before clearing browser data or moving devices; importing replaces current progress after confirmation. There is no account or automatic cloud sync. Explore the deck without changing review schedules.
 
 The app uses a system font fallback if Google Fonts is unavailable.
+
+
+## Browser regression checks
+
+Playwright is a development-only dependency. Run `npm ci`, then `npx playwright install chromium`. Start the app with `npm start` in another terminal, then run `npm run test:browser`. Set `BASE_URL` to test a different local port, or `CHROMIUM_PATH` to use an existing Chromium installation. These tests use fresh browser profiles and synthetic progress, never your normal study data.
+
+The browser scenarios cover reviewing and keyboard focus, hidden/expanded IPA, exports, valid/invalid/cancelled imports, corrupt storage, failed saves, overdue-first ordering, timed review availability, two tabs, all 44 illustrations/details, and widths from 320 to 1280 pixels.
+
+Overdue reviews are presented before new cards. Review intervals are capped at 100 years to prevent unbounded growth. Backups retain the existing flat JSON format and card IDs. Read errors never overwrite the unreadable saved record; importing a valid backup explicitly replaces it. When saving fails, practice remains available in memory with a warning. Browser tabs re-read saved progress before recording reviews, but localStorage is not transactional: truly simultaneous writes can still conflict. Use one active study tab for the safest experience.
