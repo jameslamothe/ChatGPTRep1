@@ -14,7 +14,7 @@ The server listens on port 3000 (override with `PORT`). Run checks with `npm tes
 
 ## Learning
 
-Try to recall each character's name and class, reveal the answer, and rate your recall. Again returns in 10 minutes; Hard starts at one day and grows by 1.2×; Good starts at one day and grows by 2.5×; Easy starts at four days and grows by 3.5×. This is a simple interval scheduler, not a clinical or statistical retention model. Due dates use elapsed time, rather than midnight boundaries.
+Begin with each character’s name and starting sound, reveal the answer, and rate your recall. Add ending sounds and consonant classes gradually. Each answer has separate start/end hints and an expandable IPA guide. English comparisons are approximate; the IPA represents broad Standard Thai sounds. Ending stops are unreleased, and ย/ว ending glides are identified separately. Silent spellings and word-specific exceptions still require learning the whole word. Again returns in 10 minutes; Hard starts at one day and grows by 1.2×; Good starts at one day and grows by 2.5×; Easy starts at four days and grows by 3.5×. This is a simple interval scheduler, not a clinical or statistical retention model. Due dates use elapsed time, rather than midnight boundaries.
 
 Progress lives in localStorage in the current browser and site origin. Export a JSON backup before clearing browser data or moving devices; importing replaces current progress after confirmation. There is no account or automatic cloud sync. Explore the deck without changing review schedules.
 
