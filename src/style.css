@@ -4,3 +4,5 @@
 .sound-label{margin:4px 0 12px;color:#526c59}.sound-label small{display:block;font-size:13px;font-weight:500}.sound-label span{display:block;font-size:10px;line-height:1.6;margin:5px auto 0;max-width:290px;color:#73806c}.sound-guide{font-size:11px;line-height:1.8;color:#68785f}.detail .sound-label span{margin-left:0}
 
 [lang="th"]{font-family:'Noto Sans Thai Looped','Leelawadee UI',Tahoma,sans-serif}
+
+.answer p[lang="th"],.detail h2[lang="th"]{font-size:28px;line-height:1.65;font-weight:500;color:#355743;margin:12px 0}

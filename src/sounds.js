@@ -17,6 +17,6 @@ export function consonantSounds(character) {
     character === 'อ' ? 'Start: glottal stop (a brief catch in the throat); also a vowel carrier. No regular ending sound.' :
     character === 'ฑ' ? 'Start: th (d in some words). End: d.' :
     !final ? 'Start only; no regular syllable-ending sound.' :
-    character === 'ย' || character === 'ว' ? 'Start/end sounds; the ending is a glide in a vowel combination.' :
-    'Start/end sounds.'};
+    character === 'ย' || character === 'ว' ? 'The ending is a glide in a vowel combination.' :
+    ''};
 }

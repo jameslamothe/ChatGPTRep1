@@ -4,7 +4,7 @@ const key='little-thai-v1';
 let progress={}, mode='study', current=null, revealed=false;
 const content=document.querySelector('#content');
 function soundLabel(c) {
- return `<div class="sound-label"><small>${c.sounds.label}</small><span>${c.sounds.note}</span></div>`;
+ return `<div class="sound-label"><small>${c.sounds.label}</small>${c.sounds.note ? `<span>${c.sounds.note}</span>` : ''}</div>`;
 }
 
 function valid(data) {
