@@ -39,3 +39,5 @@ The 21 shared starting-sound MP3s are unmodified recordings from [The Consonant 
 Playback starts only on a tap and stops on card changes, leaving the page or hiding the app. Only one clip plays at a time; unavailable or failed playback can be retried. Files were source-matched and decoded successfully, but independent native-speaker listening review and real iOS/Android device testing remain outstanding. Guaranteed offline playback is not provided.
 
 On desktop, answers use two columns (character/picture and pronunciation) with a compact heading and collapsed study help. Phones retain a stacked answer. Browser regression checks verify that default answers and rating controls fit a 1366 × 768 desktop viewport for all 44 cards; expanding pronunciation or credit details may require scrolling.
+
+The compact phone view uses a short masthead, side-by-side character/picture, reduced whitespace and a smaller progress panel. Thai name text stays at 28px, the main character at 104px, and audio/rating tap targets at least 44px tall. Expanded details remain available and may require scrolling.

@@ -201,5 +201,34 @@ await scenario('compact desktop answer layout keeps all 44 cards and ratings on 
  });
  assert.equal(mobile,true);
 });
+await scenario('compact phone layout keeps Thai readable and controls easy to tap',async ctx=>{
+ const p=await ctx.newPage();await p.setViewportSize({width:375,height:812});await p.goto(base);
+ assert.ok((await p.locator('.flashcard').boundingBox()).y<240);
+ assert.ok((await p.locator('#reveal').boundingBox()).height>=44);
+ await p.evaluate(()=>{
+  localStorage.setItem('little-thai-v1',JSON.stringify(Object.fromEntries(Array.from({length:44},(_,i)=>[`thai-${i}`,{due:0,interval:1,reviews:1}]))));
+ });
+ await p.reload();
+ for(let i=0;i<44;i++){
+  await p.locator('#reveal').click();
+  const layout=await p.evaluate(()=>({
+   height:document.querySelector('.flashcard').getBoundingClientRect().height,
+   thai:parseFloat(getComputedStyle(document.querySelector('.answer-copy p[lang="th"]')).fontSize),
+   character:parseFloat(getComputedStyle(document.querySelector('.answer-visual .character')).fontSize),
+   taps:[...document.querySelectorAll('.ratings button,.audio-button')].every(e=>e.getBoundingClientRect().height>=44),
+   overflow:document.documentElement.scrollWidth>innerWidth
+  }));
+  assert.ok(layout.height<650,`phone card ${i} too tall`);assert.ok(layout.thai>=28);assert.ok(layout.character>=100);
+  assert.equal(layout.taps,true);assert.equal(layout.overflow,false);
+  await p.getByRole('button',{name:/^Good /}).click();
+ }
+ await p.locator('#browse-tab').click();await p.locator('[data-card="thai-16"]').click();
+ for(const width of [320,360,375,430,800]){
+  await p.setViewportSize({width,height:812});
+  await p.locator('#detail .audio-credit').evaluate(e=>e.open=true);
+  await p.locator('#detail .pronunciation-details').evaluate(e=>e.open=true);
+  assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`expanded phone details overflow at ${width}`);
+ }
+});
 const response=await (await browser.newContext()).request.get(base+'/not-here.png');assert.equal(response.status(),404);console.log('PASS server missing-file response');
 await browser.close();console.log(`Completed ${results.length} browser scenarios plus HTTP check`);
