@@ -163,5 +163,39 @@ await scenario('starting-sound audio: all 44 consonants, native playback, naviga
  const data=await p.evaluate(()=>JSON.parse(localStorage.getItem('little-thai-v1')||'{}'));
  assert.deepEqual(data,{}); // Listening/browsing does not consume the daily allowance.
 });
+await scenario('compact desktop answer layout keeps all 44 cards and ratings on screen',async ctx=>{
+ const p=await ctx.newPage();await p.setViewportSize({width:1366,height:768});await p.goto(base);
+ await p.evaluate(()=>{
+  const data=Object.fromEntries(Array.from({length:44},(_,i)=>[`thai-${i}`,{due:0,interval:1,reviews:1}]));
+  localStorage.setItem('little-thai-v1',JSON.stringify(data));
+ });
+ await p.reload();assert.equal(await p.locator('.study-help').getAttribute('open'),null);
+ for(let i=0;i<44;i++){
+  await p.locator('#reveal').click();
+  const layout=await p.evaluate(()=>{
+   const ratings=document.querySelector('.ratings').getBoundingClientRect();
+   const visual=document.querySelector('.answer-visual').getBoundingClientRect();
+   const copy=document.querySelector('.answer-copy').getBoundingClientRect();
+   return {visible:ratings.bottom<=innerHeight&&ratings.top>=0,columns:visual.right<=copy.left,overflow:document.documentElement.scrollWidth>innerWidth};
+  });
+  assert.equal(layout.visible,true,`ratings clipped on card ${i}`);
+  assert.equal(layout.columns,true);assert.equal(layout.overflow,false);
+  await p.getByRole('button',{name:/^Good /}).click();
+  await p.evaluate(()=>scrollTo(0,0));
+ }
+ await p.locator('.study-help summary').click();assert.equal(await p.locator('.help-content').isVisible(),true);
+ await p.locator('#browse-tab').click();await p.locator('[data-card="thai-0"]').click();
+ for(const [width,height] of [[1920,1080],[1280,800],[1024,768],[800,900],[375,812],[320,812]]){
+  await p.setViewportSize({width,height});
+  assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`overflow at ${width}`);
+ }
+ await p.setViewportSize({width:375,height:812});
+ const mobile=await p.evaluate(()=>{
+  const visual=document.querySelector('.answer-visual').getBoundingClientRect();
+  const copy=document.querySelector('.answer-copy').getBoundingClientRect();
+  return copy.top>=visual.bottom;
+ });
+ assert.equal(mobile,true);
+});
 const response=await (await browser.newContext()).request.get(base+'/not-here.png');assert.equal(response.status(),404);console.log('PASS server missing-file response');
 await browser.close();console.log(`Completed ${results.length} browser scenarios plus HTTP check`);
