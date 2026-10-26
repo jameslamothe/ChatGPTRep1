@@ -1,4 +1,4 @@
-import {schedule, RATINGS, DAY} from './scheduler.js';
+import {schedule, RATINGS, DAY, newCardsToday, DAILY_NEW_LIMIT} from './scheduler.js';
 
 export const STORAGE_KEY = 'little-thai-v1';
 export const MAX_DATE = 8.64e15;
@@ -12,6 +12,7 @@ export function validProgress(data, cardIds) {
     Number.isFinite(state.due) && state.due >= 0 && state.due <= MAX_DATE &&
     Number.isFinite(state.interval) && state.interval > 0 && state.interval <= MAX_DATE / DAY &&
     Number.isSafeInteger(state.reviews) && state.reviews >= 0 &&
+    (state.introducedAt === undefined || (Number.isFinite(state.introducedAt) && state.introducedAt >= 0 && state.introducedAt <= MAX_DATE)) &&
     (state.lastRating === undefined || RATINGS.includes(state.lastRating))
   );
 }
@@ -20,7 +21,9 @@ export function validProgress(data, cardIds) {
 function clean(data) {
   return Object.fromEntries(Object.entries(data).map(([id, state]) => [id, {
     due: state.due, interval: state.interval, reviews: state.reviews,
-    ...(state.lastRating === undefined ? {} : {lastRating: state.lastRating})
+    ...(state.introducedAt === undefined ? {} : {introducedAt:state.introducedAt}),
+    ...(state.introducedAt === undefined || (Number.isFinite(state.introducedAt) && state.introducedAt >= 0 && state.introducedAt <= MAX_DATE)) &&
+    (state.lastRating === undefined ? {} : {lastRating: state.lastRating})
   }]));
 }
 
@@ -77,6 +80,9 @@ export function createProgressStore(storage, cardIds) {
       if (!cardIds.includes(id)) throw new Error('Unknown card');
       // Re-read before changing one card so another tab's reviews are retained.
       refresh();
+      if (!data[id] && newCardsToday(data, now) >= DAILY_NEW_LIMIT) {
+        throw new Error('Daily new-card limit reached. Continue with your scheduled reviews.');
+      }
       data[id] = schedule(data[id], rating, now);
       pending[id] = data[id];
       persist();

@@ -5,7 +5,7 @@ const browser=await chromium.launch({...(process.env.CHROMIUM_PATH ? {executable
 const base=process.env.BASE_URL || 'http://localhost:3000';
 const key='little-thai-v1';
 const results=[];
-async function scenario(name,run){const context=await browser.newContext({viewport:{width:375,height:812},acceptDownloads:true});try{await run(context);results.push(name);console.log('PASS '+name);}finally{await context.close();}}
+async function scenario(name,run){const context=await browser.newContext({viewport:{width:375,height:812},acceptDownloads:true,timezoneId:'Asia/Bangkok'});try{await run(context);results.push(name);console.log('PASS '+name);}finally{await context.close();}}
 async function upload(page,data,accept=true){
  page.once('dialog',d=>accept?d.accept():d.dismiss());
  await page.locator('#import').setInputFiles({name:'backup.json',mimeType:'application/json',buffer:Buffer.from(typeof data==='string'?data:JSON.stringify(data))});
@@ -94,6 +94,21 @@ await scenario('44 card details: pictures, hints, IPA, classes and mobile layout
  }
  for(const width of [320,375,768,1280]){await p.setViewportSize({width,height:850});assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);}
  assert.deepEqual(errors,[]);
+});
+await scenario('two new cards per day persist across reload and reset at local midnight',async ctx=>{
+ const p=await ctx.newPage();
+ // 23:59 in Bangkok: UTC stays on the same day across this local midnight.
+ await p.clock.install({time:new Date('2026-10-26T16:59:00Z')});await p.goto(base);
+ assert.equal(await p.locator('#due-count').innerText(),'2');
+ for(let i=0;i<2;i++){await p.locator('#reveal').click();await p.getByRole('button',{name:'Good 1 day',exact:true}).click();}
+ assert.equal(await p.locator('#due-count').innerText(),'0');
+ assert.match(await p.locator('#new-card-progress').innerText(),/2 of 2/);
+ await p.reload();assert.equal(await p.locator('#due-count').innerText(),'0');
+ assert.equal(await p.getByRole('heading',{name:'Time for a little break.'}).count(),1);
+ await p.clock.fastForward(61000);
+ assert.equal(await p.locator('#due-count').innerText(),'2');
+ assert.match(await p.locator('#new-card-progress').innerText(),/0 of 2/);
+ assert.equal(await p.locator('.character').innerText(),'ฃ');
 });
 const response=await (await browser.newContext()).request.get(base+'/not-here.png');assert.equal(response.status(),404);console.log('PASS server missing-file response');
 await browser.close();console.log(`Completed ${results.length} browser scenarios plus HTTP check`);

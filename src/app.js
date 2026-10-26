@@ -1,7 +1,7 @@
 import {illustrations} from './illustrations.js';
 import {cards} from './cards.js';
 import {createProgressStore, validProgress, STORAGE_KEY} from './progress.js';
-import {schedule,dueCards,intervalLabel} from './scheduler.js';
+import {schedule,dueCards,intervalLabel,newCardsToday,nextAvailableAt,DAILY_NEW_LIMIT} from './scheduler.js';
 // Resolve storage lazily: even reading window.localStorage can throw in private modes.
 const store=createProgressStore({getItem:key=>localStorage.getItem(key),setItem:(key,value)=>localStorage.setItem(key,value)},cards.map(c=>c.id));
 let progress=store.data, mode='study', current=null, revealed=false;
@@ -34,6 +34,7 @@ function revealAnswer() {
 function render(){
  updateStorageWarning();
  const due=dueCards(cards,progress);
+ document.querySelector('#new-card-progress').textContent=`${newCardsToday(progress)} of ${DAILY_NEW_LIMIT} new cards today · resets at local midnight`;
  const started=cards.filter(c=>progress[c.id]).length;
  document.querySelector('#due-count').textContent=due.length;
  document.querySelector('#learned-count').textContent=started;
@@ -48,11 +49,11 @@ function render(){
   content.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>{const c=cards.find(c=>c.id===b.dataset.card);document.querySelector('#detail').innerHTML=`<div class="detail">${answer(c)}</div>`;});return;
  }
  if(!current || !due.some(c=>c.id===current.id)){current=due[0];revealed=false;}
- if(!current){const next=Math.min(...Object.values(progress).map(s=>s.due));content.innerHTML=`<div class="flashcard empty"><p class="eyebrow">ALL CAUGHT UP</p><h2>Time for a little break.</h2><p>You’ve reviewed every card that’s due.</p><p class="muted">Next review: ${new Date(next).toLocaleString([], {dateStyle:'medium',timeStyle:'short'})}</p><button class="primary" id="explore">Explore the deck</button></div>`;document.querySelector('#explore').onclick=()=>{mode='browse';render();};return;}
+ if(!current){const next=nextAvailableAt(cards,progress);content.innerHTML=`<div class="flashcard empty"><p class="eyebrow">ALL CAUGHT UP</p><h2>Time for a little break.</h2><p>You’ve finished your available cards for now.</p><p class="muted">Next cards available: ${new Date(next).toLocaleString([], {dateStyle:'medium',timeStyle:'short'})}</p><button class="primary" id="explore">Explore the deck</button></div>`;document.querySelector('#explore').onclick=()=>{mode='browse';render();};return;}
  const c=current;
  content.innerHTML=`<div class="card-top"><span>CONSONANTS <span class="dot">•</span> ${progress[c.id]?'REVIEW':'NEW CHARACTER'}</span><span>${due.length} remaining</span></div><div class="flashcard"><p class="eyebrow">${revealed?'MEET THIS CHARACTER':'DO YOU KNOW THIS CHARACTER?'}</p><div class="character" lang="th">${c.character}</div>${revealed?`<div class="answer" aria-live="polite">${answer(c)}</div>`:`<p class="prompt">Recall its name and starting sound.<br>Take your time.</p><button class="primary" id="reveal">Reveal answer <span>↗</span></button><p class="key-hint">or press space</p>`}</div>${revealed?`<div class="rating-panel"><p>How well did you recall the character and starting sound?</p><p class="rating-hint">Add ending sounds and consonant classes when you’re ready.</p><div class="ratings">${['again','hard','good','easy'].map((r,i)=>`<button data-rating="${r}" class="${r}"><strong>${['Again','Hard','Good','Easy'][i]}</strong><small>${intervalLabel(schedule(progress[c.id],r).interval)}</small></button>`).join('')}</div></div>`:`<p class="under-card">✧ A new alphabet opens up a whole new world.</p>`}`;
  if(!revealed)document.querySelector('#reveal').onclick=revealAnswer;
- content.querySelectorAll('[data-rating]').forEach(b=>b.onclick=()=>{progress=store.rate(c.id,b.dataset.rating);current=null;revealed=false;render();
+ content.querySelectorAll('[data-rating]').forEach(b=>b.onclick=()=>{try { progress=store.rate(c.id,b.dataset.rating); } catch(error) { progress=store.data;document.querySelector('#message').textContent=error.message; } current=null;revealed=false;render();
  const target=content.querySelector('#reveal')||content.querySelector('#explore');
  target?.focus({preventScroll:true});
  content.scrollIntoView({block:'start'});});

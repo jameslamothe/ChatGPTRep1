@@ -64,3 +64,16 @@ test('a read failure cannot overwrite existing progress even if writes are allow
  const store=createProgressStore({getItem(){throw new Error('Read failure');},setItem(){writes++;}},ids);
  store.rate('thai-0','good',0);assert.equal(writes,0);assert.equal(store.issue,'unavailable');
 });
+test('introduction dates survive backup, reload and repeated reviews',()=>{
+ const storage=memory(),store=createProgressStore(storage,ids),now=Date.now();
+ store.rate('thai-0','again',now);store.rate('thai-0','good',now+600000);
+ assert.equal(createProgressStore(storage,ids).data['thai-0'].introducedAt,now);
+ assert.equal(validProgress({'thai-0':{...entry,introducedAt:-1}},ids),false);
+});
+test('a stale tab cannot introduce a third new card after two were saved',()=>{
+ const allIds=[...ids,'thai-2'],storage=memory(),a=createProgressStore(storage,allIds),b=createProgressStore(storage,allIds);
+ const now=new Date(2026,9,26,12).getTime();
+ a.rate('thai-0','good',now);a.rate('thai-1','good',now);
+ assert.throws(()=>b.rate('thai-2','good',now),/Daily new-card limit/);
+ assert.equal(JSON.parse(storage.raw)['thai-2'],undefined);
+});
