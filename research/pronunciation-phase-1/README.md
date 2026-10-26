@@ -1,14 +1,17 @@
 # Pronunciation and audio sourcing — phase 1
 
-Prepared 26 October 2026. This is a research dossier, not an app implementation. No card data, playback controls, review schedules or saved progress were changed.
+Prepared 26 October 2026; updated after network access was enabled. This is a research dossier, not an app implementation. No card data, playback controls, review schedules or saved progress were changed.
 
-## Result
+## Updated result
 
-- Ten pilot characters have draft content and a recording script: ก ข ค ง จ ช ด ต บ ป.
-- Twenty separate recording slots are identified: a full letter name and a mnemonic example word for each character.
-- **Zero verified recordings, zero downloaded audio files, and zero confirmed audio reuse licenses.** All twenty slots remain unfilled. No filename or asset path represents a recording that does not exist.
-- External pronunciation and licensing verification is blocked by network access restrictions. Do not interpret that as evidence that suitable recordings do not exist.
-- A speaker's native status, gender, pronunciation quality and consistency have not been confirmed. No human reviewer is attributed to the draft.
+The Slice of Thai chart and the linked CC BY-NC 3.0 US license are now accessible and inspected. See [source-findings.md](source-findings.md) for the current coverage, rights evidence and remaining gaps.
+
+- Nine source-linked initial-sound recordings cover all ten pilot consonants; ข and ค share a sound.
+- Three exact-word candidates are available: ไก่, ไข่ and จาน.
+- All twelve files downloaded and decoded successfully. Original bytes, source URLs, hashes and attribution are retained under audio-candidates/ and in audio-candidates.json.
+- These initial demonstrations are mid-tone consonant-plus-vowel syllables, **not full letter names**. None fills a full-name slot.
+- Of the twenty originally requested name/word slots, three have source-matched candidates and seventeen remain unfilled. None has independent native-speaker listening sign-off.
+- The linked consonant-shape chart supports the ten full-name phonetic sequences and tones. Native review and seven English-meaning dictionary checks remain outstanding. The current app is unchanged.
 
 ## Files
 
@@ -18,7 +21,7 @@ Prepared 26 October 2026. This is a research dossier, not an app implementation.
 - [Source checks](source-checks.json): actual attempted URLs and access errors.
 - [Recording and acceptance checklist](recording-checklist.md): exact requested utterances, source-rights checks and acceptance criteria.
 
-## Source search and verification status
+## Earlier source search (historical; see updated result above)
 
 | Source | Intended use | Observed result | Audio reuse status |
 | --- | --- | --- | --- |
@@ -30,13 +33,13 @@ Prepared 26 October 2026. This is a research dossier, not an app implementation.
 
 These are prospective reference/search locations, not verified sources supporting the content draft. The supplied reference sites were not treated as authorized sources of downloadable audio. Requests were attempted with the available elevated network execution route; the proxy continued to deny access. No verification or security checks were bypassed.
 
-## What is needed to finish this sourcing step
+## Earlier access requirements (partly resolved)
 
 Allow HTTPS access in the cloud environment's network settings to the specific research destinations: `thai-notes.com`, `slice-of-thai.com`, `kodthai.com`, `commons.wikimedia.org`, `en.wiktionary.org`, and `upload.wikimedia.org` (for candidate Wikimedia audio). These are required additions, not a replacement for existing allowed domains. Other file-specific destinations may be identified only after inspecting a real source page. No environment settings were changed during this task.
 
 Alternatively, provide recordings with their original source pages and explicit license/permission evidence, or commission a native Thai speaker using the recording checklist and obtain written permission to host and redistribute the recordings. Supplying an audio file alone does not establish reuse rights. There is no need to provide passwords or tokens.
 
-Once access or documented recordings are available, inspect actual candidates, fill the twenty-slot register with genuine source and license evidence, and obtain native-speaker verification. Select accurate, clearly licensed, consistent speech before considering the male-voice preference. Use the smallest useful verified subset for a later implementation decision; do not represent unfilled audio controls as a completed pilot.
+Slice of Thai and Creative Commons access is now resolved. Other reference-site access remains untested since the update. Continue with the missing seventeen recordings and native-speaker verification described in source-findings.md. Select accurate, clearly licensed, consistent speech before considering the male-voice preference. Use the smallest useful verified subset for a later implementation decision; do not represent unfilled audio controls as a completed pilot.
 
 ## Boundaries for later implementation
 

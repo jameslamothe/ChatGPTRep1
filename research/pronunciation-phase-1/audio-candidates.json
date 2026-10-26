@@ -1,0 +1,446 @@
+[
+  {
+    "candidateId": "initial-g",
+    "sourcePage": "https://slice-of-thai.com/consonant-sounds/#chart",
+    "sourceUrl": "https://slice-of-thai.com/s/pc-g/pc-g.mp3",
+    "localPath": "research/pronunciation-phase-1/audio-candidates/initial-g.mp3",
+    "httpStatus": 200,
+    "contentType": "audio/mpeg",
+    "bytes": 7646,
+    "sha256": "c67d68ec24423a08d6932510e229586a8d5c6c8e4f7ab198246461b2fee81124",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "22050",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "1.097143"
+      }
+    },
+    "decodeStatus": "passed",
+    "licenseId": "CC-BY-NC-3.0-US",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "credit": "Chris Pirazzi / slice-of-thai.com",
+    "speakerIdentity": null,
+    "speakerGender": null,
+    "nativeSpeakerStatus": "source_claim_only_not_independently_verified",
+    "pronunciationReview": "pending_native_speaker_review",
+    "modifications": "None; original downloaded bytes preserved",
+    "levelMeasurement": {
+      "mean_volume": -16.4,
+      "max_volume": -3.3
+    }
+  },
+  {
+    "candidateId": "initial-k",
+    "sourcePage": "https://slice-of-thai.com/consonant-sounds/#chart",
+    "sourceUrl": "https://slice-of-thai.com/s/pc-k/pc-k.mp3",
+    "localPath": "research/pronunciation-phase-1/audio-candidates/initial-k.mp3",
+    "httpStatus": 200,
+    "contentType": "audio/mpeg",
+    "bytes": 8530,
+    "sha256": "c6835e5de0d15325ca60f71ff7a12e1998c8a65afa8785a723feecfe58afdd9f",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "22050",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "1.175510"
+      }
+    },
+    "decodeStatus": "passed",
+    "licenseId": "CC-BY-NC-3.0-US",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "credit": "Chris Pirazzi / slice-of-thai.com",
+    "speakerIdentity": null,
+    "speakerGender": null,
+    "nativeSpeakerStatus": "source_claim_only_not_independently_verified",
+    "pronunciationReview": "pending_native_speaker_review",
+    "modifications": "None; original downloaded bytes preserved",
+    "levelMeasurement": {
+      "mean_volume": -16.2,
+      "max_volume": -3.5
+    }
+  },
+  {
+    "candidateId": "initial-ng",
+    "sourcePage": "https://slice-of-thai.com/consonant-sounds/#chart",
+    "sourceUrl": "https://slice-of-thai.com/s/pc-ng/pc-ng.mp3",
+    "localPath": "research/pronunciation-phase-1/audio-candidates/initial-ng.mp3",
+    "httpStatus": 200,
+    "contentType": "audio/mpeg",
+    "bytes": 7959,
+    "sha256": "1659c5ad746d6fc17b74956a259c8558cb498f2a04f01fdddb75cc8ebdf38f70",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "22050",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "1.123265"
+      }
+    },
+    "decodeStatus": "passed",
+    "licenseId": "CC-BY-NC-3.0-US",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "credit": "Chris Pirazzi / slice-of-thai.com",
+    "speakerIdentity": null,
+    "speakerGender": null,
+    "nativeSpeakerStatus": "source_claim_only_not_independently_verified",
+    "pronunciationReview": "pending_native_speaker_review",
+    "modifications": "None; original downloaded bytes preserved",
+    "levelMeasurement": {
+      "mean_volume": -14.8,
+      "max_volume": -3.2
+    }
+  },
+  {
+    "candidateId": "initial-j",
+    "sourcePage": "https://slice-of-thai.com/consonant-sounds/#chart",
+    "sourceUrl": "https://slice-of-thai.com/s/pc-j/pc-j.mp3",
+    "localPath": "research/pronunciation-phase-1/audio-candidates/initial-j.mp3",
+    "httpStatus": 200,
+    "contentType": "audio/mpeg",
+    "bytes": 7779,
+    "sha256": "35b15fc4f02f67ee70f3cc9cc608632dba99bbabe71ea701a754bc3f97353d5f",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "22050",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "1.071020"
+      }
+    },
+    "decodeStatus": "passed",
+    "licenseId": "CC-BY-NC-3.0-US",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "credit": "Chris Pirazzi / slice-of-thai.com",
+    "speakerIdentity": null,
+    "speakerGender": null,
+    "nativeSpeakerStatus": "source_claim_only_not_independently_verified",
+    "pronunciationReview": "pending_native_speaker_review",
+    "modifications": "None; original downloaded bytes preserved",
+    "levelMeasurement": {
+      "mean_volume": -17.6,
+      "max_volume": -3.4
+    }
+  },
+  {
+    "candidateId": "initial-ch",
+    "sourcePage": "https://slice-of-thai.com/consonant-sounds/#chart",
+    "sourceUrl": "https://slice-of-thai.com/s/pc-ch/pc-ch.mp3",
+    "localPath": "research/pronunciation-phase-1/audio-candidates/initial-ch.mp3",
+    "httpStatus": 200,
+    "contentType": "audio/mpeg",
+    "bytes": 7778,
+    "sha256": "c69960d1a5e06f4d220acc71e729f5f2dfbd39fc6ee00d9e488cf3156f63258f",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "22050",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "1.097143"
+      }
+    },
+    "decodeStatus": "passed",
+    "licenseId": "CC-BY-NC-3.0-US",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "credit": "Chris Pirazzi / slice-of-thai.com",
+    "speakerIdentity": null,
+    "speakerGender": null,
+    "nativeSpeakerStatus": "source_claim_only_not_independently_verified",
+    "pronunciationReview": "pending_native_speaker_review",
+    "modifications": "None; original downloaded bytes preserved",
+    "levelMeasurement": {
+      "mean_volume": -18.7,
+      "max_volume": -3.7
+    }
+  },
+  {
+    "candidateId": "initial-d",
+    "sourcePage": "https://slice-of-thai.com/consonant-sounds/#chart",
+    "sourceUrl": "https://slice-of-thai.com/s/pc-d/pc-d.mp3",
+    "localPath": "research/pronunciation-phase-1/audio-candidates/initial-d.mp3",
+    "httpStatus": 200,
+    "contentType": "audio/mpeg",
+    "bytes": 7386,
+    "sha256": "6a12902f02373a382b1a066ac02eb1c99aa5fbf1944e9654a6a5988ef0f3938f",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "22050",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "1.071020"
+      }
+    },
+    "decodeStatus": "passed",
+    "licenseId": "CC-BY-NC-3.0-US",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "credit": "Chris Pirazzi / slice-of-thai.com",
+    "speakerIdentity": null,
+    "speakerGender": null,
+    "nativeSpeakerStatus": "source_claim_only_not_independently_verified",
+    "pronunciationReview": "pending_native_speaker_review",
+    "modifications": "None; original downloaded bytes preserved",
+    "levelMeasurement": {
+      "mean_volume": -17.6,
+      "max_volume": -3.4
+    }
+  },
+  {
+    "candidateId": "initial-dt",
+    "sourcePage": "https://slice-of-thai.com/consonant-sounds/#chart",
+    "sourceUrl": "https://slice-of-thai.com/s/pc-dt/pc-dt.mp3",
+    "localPath": "research/pronunciation-phase-1/audio-candidates/initial-dt.mp3",
+    "httpStatus": 200,
+    "contentType": "audio/mpeg",
+    "bytes": 6972,
+    "sha256": "674710306bd5c4ff3e395a3899bda130c5d3098491855701062036a964647de0",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "22050",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "0.992653"
+      }
+    },
+    "decodeStatus": "passed",
+    "licenseId": "CC-BY-NC-3.0-US",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "credit": "Chris Pirazzi / slice-of-thai.com",
+    "speakerIdentity": null,
+    "speakerGender": null,
+    "nativeSpeakerStatus": "source_claim_only_not_independently_verified",
+    "pronunciationReview": "pending_native_speaker_review",
+    "modifications": "None; original downloaded bytes preserved",
+    "levelMeasurement": {
+      "mean_volume": -20.1,
+      "max_volume": -3.4
+    }
+  },
+  {
+    "candidateId": "initial-b",
+    "sourcePage": "https://slice-of-thai.com/consonant-sounds/#chart",
+    "sourceUrl": "https://slice-of-thai.com/s/pc-b/pc-b.mp3",
+    "localPath": "research/pronunciation-phase-1/audio-candidates/initial-b.mp3",
+    "httpStatus": 200,
+    "contentType": "audio/mpeg",
+    "bytes": 7750,
+    "sha256": "1b6294055b3d5a945f25d99f37a94e3631ecff781c3bd72ae3cca4b48cde684f",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "22050",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "1.123265"
+      }
+    },
+    "decodeStatus": "passed",
+    "licenseId": "CC-BY-NC-3.0-US",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "credit": "Chris Pirazzi / slice-of-thai.com",
+    "speakerIdentity": null,
+    "speakerGender": null,
+    "nativeSpeakerStatus": "source_claim_only_not_independently_verified",
+    "pronunciationReview": "pending_native_speaker_review",
+    "modifications": "None; original downloaded bytes preserved",
+    "levelMeasurement": {
+      "mean_volume": -17.4,
+      "max_volume": -3.4
+    }
+  },
+  {
+    "candidateId": "initial-bp",
+    "sourcePage": "https://slice-of-thai.com/consonant-sounds/#chart",
+    "sourceUrl": "https://slice-of-thai.com/s/pc-bp/pc-bp.mp3",
+    "localPath": "research/pronunciation-phase-1/audio-candidates/initial-bp.mp3",
+    "httpStatus": 200,
+    "contentType": "audio/mpeg",
+    "bytes": 7257,
+    "sha256": "41a340ed44422fb381f235e00414d49ddddf0b2be2756ad4d12c18023dff4f99",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "22050",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "1.018776"
+      }
+    },
+    "decodeStatus": "passed",
+    "licenseId": "CC-BY-NC-3.0-US",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "credit": "Chris Pirazzi / slice-of-thai.com",
+    "speakerIdentity": null,
+    "speakerGender": null,
+    "nativeSpeakerStatus": "source_claim_only_not_independently_verified",
+    "pronunciationReview": "pending_native_speaker_review",
+    "modifications": "None; original downloaded bytes preserved",
+    "levelMeasurement": {
+      "mean_volume": -20.3,
+      "max_volume": -3.4
+    }
+  },
+  {
+    "candidateId": "word-kai",
+    "sourcePage": "https://slice-of-thai.com/consonant-sounds/",
+    "sourceUrl": "https://slice-of-thai.com/s/th_5f__e44__e01__e48__5f_ga_300_i/th_5f__e44__e01__e48__5f_ga_300_i.mp3",
+    "localPath": "research/pronunciation-phase-1/audio-candidates/word-kai.mp3",
+    "httpStatus": 200,
+    "contentType": "audio/mpeg",
+    "bytes": 6736,
+    "sha256": "db043502b66e1f5d5ab89a1364141351c007f5c86554f7609b110a175e35dd3a",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "22050",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "0.940408"
+      }
+    },
+    "decodeStatus": "passed",
+    "licenseId": "CC-BY-NC-3.0-US",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "credit": "Chris Pirazzi / slice-of-thai.com",
+    "speakerIdentity": null,
+    "speakerGender": null,
+    "nativeSpeakerStatus": "not_independently_established_for_this_clip",
+    "pronunciationReview": "pending_native_speaker_review",
+    "modifications": "None; original downloaded bytes preserved",
+    "levelMeasurement": {
+      "mean_volume": -23.5,
+      "max_volume": -3.8
+    }
+  },
+  {
+    "candidateId": "word-khai",
+    "sourcePage": "https://slice-of-thai.com/consonant-sounds/",
+    "sourceUrl": "https://slice-of-thai.com/s/th_5f__e44__e02__e48__5f_ka_300_i/th_5f__e44__e02__e48__5f_ka_300_i.mp3",
+    "localPath": "research/pronunciation-phase-1/audio-candidates/word-khai.mp3",
+    "httpStatus": 200,
+    "contentType": "audio/mpeg",
+    "bytes": 7126,
+    "sha256": "2141cda92e64c241f1b6181c559506d5bb9b8b84766d33fdb4fb318f776acbce",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "22050",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "0.992653"
+      }
+    },
+    "decodeStatus": "passed",
+    "licenseId": "CC-BY-NC-3.0-US",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "credit": "Chris Pirazzi / slice-of-thai.com",
+    "speakerIdentity": null,
+    "speakerGender": null,
+    "nativeSpeakerStatus": "not_independently_established_for_this_clip",
+    "pronunciationReview": "pending_native_speaker_review",
+    "modifications": "None; original downloaded bytes preserved",
+    "levelMeasurement": {
+      "mean_volume": -23.1,
+      "max_volume": -3.3
+    }
+  },
+  {
+    "candidateId": "word-chan",
+    "sourcePage": "https://slice-of-thai.com/consonant-sounds/",
+    "sourceUrl": "https://slice-of-thai.com/s/th_5f__e08__e32__e19__5f_jaan/th_5f__e08__e32__e19__5f_jaan.mp3",
+    "localPath": "research/pronunciation-phase-1/audio-candidates/word-chan.mp3",
+    "httpStatus": 200,
+    "contentType": "audio/mpeg",
+    "bytes": 7308,
+    "sha256": "0acee56fa97cc37d93ea5d14b55dcb6cbc3920e0d7c7c05b0d8a782a1b099841",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "22050",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "1.044898"
+      }
+    },
+    "decodeStatus": "passed",
+    "licenseId": "CC-BY-NC-3.0-US",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "credit": "Chris Pirazzi / slice-of-thai.com",
+    "speakerIdentity": null,
+    "speakerGender": null,
+    "nativeSpeakerStatus": "not_independently_established_for_this_clip",
+    "pronunciationReview": "pending_native_speaker_review",
+    "modifications": "None; original downloaded bytes preserved",
+    "levelMeasurement": {
+      "mean_volume": -22.8,
+      "max_volume": -3.4
+    }
+  }
+]

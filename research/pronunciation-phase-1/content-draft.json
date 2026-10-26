@@ -1,7 +1,7 @@
 {
   "preparedOn": "2026-10-26",
-  "status": "draft_not_approved_for_teaching",
-  "notes": "Transcriptions are proposed from the existing app and linguistic reasoning; not externally verified. No audio assets have been selected.",
+  "status": "published_source_cross_check_complete_native_listening_review_pending",
+  "notes": "The consonant-shape chart supports the full-name phonetic sequences and tones for the ten pilot entries; the sound chart supports initial phonemes and three explicit word/meaning pairs. Full-name audio and seven exact-word recordings remain missing. No independent native-speaker review has been performed.",
   "cards": [
     {
       "cardId": "thai-0",
@@ -19,10 +19,23 @@
       },
       "proposedNameIPA": "/kɔː˧ kaj˨˩/",
       "proposedWordIPA": "/kaj˨˩/",
-      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
-      "contentSourceIds": [],
+      "contentStatus": "names_tones_and_initial_sounds_source_checked_native_review_pending",
+      "contentSourceIds": [
+        "slice-of-thai-consonant-sounds",
+        "slice-of-thai-consonant-shape"
+      ],
       "reviewedBy": null,
-      "reviewDate": null
+      "reviewDate": null,
+      "verificationScope": {
+        "initialSound": "Compared with chart IPA and relevant aspiration sections",
+        "fullTraditionalName": "Full-name phonetic sequence and tones cross-checked with the consonant-shape chart IPA; existing app notation retained",
+        "exampleWord": "Source word, meaning and IPA matched",
+        "nativeSpeakerReview": "Not performed",
+        "exampleWordPronunciation": "Cross-checked as the mnemonic portion of the chart name transcription",
+        "exampleWordMeaning": "Explicitly supported by sound-page word comparison"
+      },
+      "initialDemonstrationCandidateId": "initial-g",
+      "exampleWordCandidateId": "word-kai"
     },
     {
       "cardId": "thai-1",
@@ -40,10 +53,23 @@
       },
       "proposedNameIPA": "/kʰɔː˩˩˦ kʰaj˨˩/",
       "proposedWordIPA": "/kʰaj˨˩/",
-      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
-      "contentSourceIds": [],
+      "contentStatus": "names_tones_and_initial_sounds_source_checked_native_review_pending",
+      "contentSourceIds": [
+        "slice-of-thai-consonant-sounds",
+        "slice-of-thai-consonant-shape"
+      ],
       "reviewedBy": null,
-      "reviewDate": null
+      "reviewDate": null,
+      "verificationScope": {
+        "initialSound": "Compared with chart IPA and relevant aspiration sections",
+        "fullTraditionalName": "Full-name phonetic sequence and tones cross-checked with the consonant-shape chart IPA; existing app notation retained",
+        "exampleWord": "Source word, meaning and IPA matched",
+        "nativeSpeakerReview": "Not performed",
+        "exampleWordPronunciation": "Cross-checked as the mnemonic portion of the chart name transcription",
+        "exampleWordMeaning": "Explicitly supported by sound-page word comparison"
+      },
+      "initialDemonstrationCandidateId": "initial-k",
+      "exampleWordCandidateId": "word-khai"
     },
     {
       "cardId": "thai-3",
@@ -61,10 +87,23 @@
       },
       "proposedNameIPA": "/kʰɔː˧ kʰwaːj˧/",
       "proposedWordIPA": "/kʰwaːj˧/",
-      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
-      "contentSourceIds": [],
+      "contentStatus": "names_tones_and_initial_sounds_source_checked_native_review_pending",
+      "contentSourceIds": [
+        "slice-of-thai-consonant-sounds",
+        "slice-of-thai-consonant-shape"
+      ],
       "reviewedBy": null,
-      "reviewDate": null
+      "reviewDate": null,
+      "verificationScope": {
+        "initialSound": "Compared with chart IPA and relevant aspiration sections",
+        "fullTraditionalName": "Full-name phonetic sequence and tones cross-checked with the consonant-shape chart IPA; existing app notation retained",
+        "exampleWord": "Not verified from this source",
+        "nativeSpeakerReview": "Not performed",
+        "exampleWordPronunciation": "Cross-checked as the mnemonic portion of the chart name transcription",
+        "exampleWordMeaning": "Existing app meaning; not independently dictionary-checked in this task"
+      },
+      "initialDemonstrationCandidateId": "initial-k",
+      "exampleWordCandidateId": null
     },
     {
       "cardId": "thai-6",
@@ -82,10 +121,23 @@
       },
       "proposedNameIPA": "/ŋɔː˧ ŋuː˧/",
       "proposedWordIPA": "/ŋuː˧/",
-      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
-      "contentSourceIds": [],
+      "contentStatus": "names_tones_and_initial_sounds_source_checked_native_review_pending",
+      "contentSourceIds": [
+        "slice-of-thai-consonant-sounds",
+        "slice-of-thai-consonant-shape"
+      ],
       "reviewedBy": null,
-      "reviewDate": null
+      "reviewDate": null,
+      "verificationScope": {
+        "initialSound": "Compared with chart IPA and relevant aspiration sections",
+        "fullTraditionalName": "Full-name phonetic sequence and tones cross-checked with the consonant-shape chart IPA; existing app notation retained",
+        "exampleWord": "Not verified from this source",
+        "nativeSpeakerReview": "Not performed",
+        "exampleWordPronunciation": "Cross-checked as the mnemonic portion of the chart name transcription",
+        "exampleWordMeaning": "Existing app meaning; not independently dictionary-checked in this task"
+      },
+      "initialDemonstrationCandidateId": "initial-ng",
+      "exampleWordCandidateId": null
     },
     {
       "cardId": "thai-7",
@@ -103,10 +155,23 @@
       },
       "proposedNameIPA": "/tɕɔː˧ tɕaːn˧/",
       "proposedWordIPA": "/tɕaːn˧/",
-      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
-      "contentSourceIds": [],
+      "contentStatus": "names_tones_and_initial_sounds_source_checked_native_review_pending",
+      "contentSourceIds": [
+        "slice-of-thai-consonant-sounds",
+        "slice-of-thai-consonant-shape"
+      ],
       "reviewedBy": null,
-      "reviewDate": null
+      "reviewDate": null,
+      "verificationScope": {
+        "initialSound": "Compared with chart IPA and relevant aspiration sections",
+        "fullTraditionalName": "Full-name phonetic sequence and tones cross-checked with the consonant-shape chart IPA; existing app notation retained",
+        "exampleWord": "Source word, meaning and IPA matched",
+        "nativeSpeakerReview": "Not performed",
+        "exampleWordPronunciation": "Cross-checked as the mnemonic portion of the chart name transcription",
+        "exampleWordMeaning": "Explicitly supported by sound-page word comparison"
+      },
+      "initialDemonstrationCandidateId": "initial-j",
+      "exampleWordCandidateId": "word-chan"
     },
     {
       "cardId": "thai-9",
@@ -124,10 +189,23 @@
       },
       "proposedNameIPA": "/tɕʰɔː˧ tɕʰaːŋ˦˥/",
       "proposedWordIPA": "/tɕʰaːŋ˦˥/",
-      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
-      "contentSourceIds": [],
+      "contentStatus": "names_tones_and_initial_sounds_source_checked_native_review_pending",
+      "contentSourceIds": [
+        "slice-of-thai-consonant-sounds",
+        "slice-of-thai-consonant-shape"
+      ],
       "reviewedBy": null,
-      "reviewDate": null
+      "reviewDate": null,
+      "verificationScope": {
+        "initialSound": "Compared with chart IPA and relevant aspiration sections",
+        "fullTraditionalName": "Full-name phonetic sequence and tones cross-checked with the consonant-shape chart IPA; existing app notation retained",
+        "exampleWord": "Not verified from this source",
+        "nativeSpeakerReview": "Not performed",
+        "exampleWordPronunciation": "Cross-checked as the mnemonic portion of the chart name transcription",
+        "exampleWordMeaning": "Existing app meaning; not independently dictionary-checked in this task"
+      },
+      "initialDemonstrationCandidateId": "initial-ch",
+      "exampleWordCandidateId": null
     },
     {
       "cardId": "thai-19",
@@ -145,10 +223,23 @@
       },
       "proposedNameIPA": "/dɔː˧ dek˨˩/",
       "proposedWordIPA": "/dek˨˩/",
-      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
-      "contentSourceIds": [],
+      "contentStatus": "names_tones_and_initial_sounds_source_checked_native_review_pending",
+      "contentSourceIds": [
+        "slice-of-thai-consonant-sounds",
+        "slice-of-thai-consonant-shape"
+      ],
       "reviewedBy": null,
-      "reviewDate": null
+      "reviewDate": null,
+      "verificationScope": {
+        "initialSound": "Compared with chart IPA and relevant aspiration sections",
+        "fullTraditionalName": "Full-name phonetic sequence and tones cross-checked with the consonant-shape chart IPA; existing app notation retained",
+        "exampleWord": "Not verified from this source",
+        "nativeSpeakerReview": "Not performed",
+        "exampleWordPronunciation": "Cross-checked as the mnemonic portion of the chart name transcription",
+        "exampleWordMeaning": "Existing app meaning; not independently dictionary-checked in this task"
+      },
+      "initialDemonstrationCandidateId": "initial-d",
+      "exampleWordCandidateId": null
     },
     {
       "cardId": "thai-20",
@@ -166,10 +257,23 @@
       },
       "proposedNameIPA": "/tɔː˧ taw˨˩/",
       "proposedWordIPA": "/taw˨˩/",
-      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
-      "contentSourceIds": [],
+      "contentStatus": "names_tones_and_initial_sounds_source_checked_native_review_pending",
+      "contentSourceIds": [
+        "slice-of-thai-consonant-sounds",
+        "slice-of-thai-consonant-shape"
+      ],
       "reviewedBy": null,
-      "reviewDate": null
+      "reviewDate": null,
+      "verificationScope": {
+        "initialSound": "Compared with chart IPA and relevant aspiration sections",
+        "fullTraditionalName": "Full-name phonetic sequence and tones cross-checked with the consonant-shape chart IPA; existing app notation retained",
+        "exampleWord": "Not verified from this source",
+        "nativeSpeakerReview": "Not performed",
+        "exampleWordPronunciation": "Cross-checked as the mnemonic portion of the chart name transcription",
+        "exampleWordMeaning": "Existing app meaning; not independently dictionary-checked in this task"
+      },
+      "initialDemonstrationCandidateId": "initial-dt",
+      "exampleWordCandidateId": null
     },
     {
       "cardId": "thai-25",
@@ -187,10 +291,23 @@
       },
       "proposedNameIPA": "/bɔː˧ baj˧ maːj˦˥/",
       "proposedWordIPA": "/baj˧ maːj˦˥/",
-      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
-      "contentSourceIds": [],
+      "contentStatus": "names_tones_and_initial_sounds_source_checked_native_review_pending",
+      "contentSourceIds": [
+        "slice-of-thai-consonant-sounds",
+        "slice-of-thai-consonant-shape"
+      ],
       "reviewedBy": null,
-      "reviewDate": null
+      "reviewDate": null,
+      "verificationScope": {
+        "initialSound": "Compared with chart IPA and relevant aspiration sections",
+        "fullTraditionalName": "Full-name phonetic sequence and tones cross-checked with the consonant-shape chart IPA; existing app notation retained",
+        "exampleWord": "Not verified from this source",
+        "nativeSpeakerReview": "Not performed",
+        "exampleWordPronunciation": "Cross-checked as the mnemonic portion of the chart name transcription",
+        "exampleWordMeaning": "Existing app meaning; not independently dictionary-checked in this task"
+      },
+      "initialDemonstrationCandidateId": "initial-b",
+      "exampleWordCandidateId": null
     },
     {
       "cardId": "thai-26",
@@ -208,10 +325,23 @@
       },
       "proposedNameIPA": "/pɔː˧ plaː˧/",
       "proposedWordIPA": "/plaː˧/",
-      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
-      "contentSourceIds": [],
+      "contentStatus": "names_tones_and_initial_sounds_source_checked_native_review_pending",
+      "contentSourceIds": [
+        "slice-of-thai-consonant-sounds",
+        "slice-of-thai-consonant-shape"
+      ],
       "reviewedBy": null,
-      "reviewDate": null
+      "reviewDate": null,
+      "verificationScope": {
+        "initialSound": "Compared with chart IPA and relevant aspiration sections",
+        "fullTraditionalName": "Full-name phonetic sequence and tones cross-checked with the consonant-shape chart IPA; existing app notation retained",
+        "exampleWord": "Not verified from this source",
+        "nativeSpeakerReview": "Not performed",
+        "exampleWordPronunciation": "Cross-checked as the mnemonic portion of the chart name transcription",
+        "exampleWordMeaning": "Existing app meaning; not independently dictionary-checked in this task"
+      },
+      "initialDemonstrationCandidateId": "initial-bp",
+      "exampleWordCandidateId": null
     }
   ]
 }

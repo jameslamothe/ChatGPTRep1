@@ -28,5 +28,40 @@
     "source": "wikimedia-rest",
     "url": "https://commons.wikimedia.org/wiki/Category:Thai_pronunciation",
     "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source": "slice-of-thai-retry-after-network-publication",
+    "url": "https://slice-of-thai.com/consonant-sounds/",
+    "status": 200,
+    "sha256": "9725e96b5c0a8cf87ec4087b54c275210b5e9c50413937feaf1eecace511af11",
+    "result": "License notice, chart, linked audio paths and three exact-word matches inspected"
+  },
+  {
+    "source": "cc-by-nc-3-us-deed",
+    "url": "https://creativecommons.org/licenses/by-nc/3.0/us/",
+    "status": 200,
+    "sha256": "ee0c26e540f6af0ce56ab302084c6c689250ec0b7a4d1591194c381cf0bed1a2",
+    "result": "License deed inspected; noncommercial sharing/adaptation permitted subject to conditions"
+  },
+  {
+    "source": "consonant-shape",
+    "url": "https://slice-of-thai.com/consonant-shape/",
+    "status": 200,
+    "sha256": "a01e3cb3dbb5afb428983b0bc8dd0fd2af299cebd664981613075b6da6aa7085",
+    "result": "Name phonetic sequences and tones cross-checked; no MP3 links found"
+  },
+  {
+    "source": "flashcards",
+    "url": "https://slice-of-thai.com/flashcards/",
+    "status": 200,
+    "sha256": "2a3a471300ca0f6f5c53bcbcf0d73dff5c0225c3f15cc696f715b15f184bc7e4",
+    "result": "Printable flashcard description; no MP3 links found"
+  },
+  {
+    "source": "license-legalcode",
+    "url": "https://creativecommons.org/licenses/by-nc/3.0/us/legalcode.en",
+    "status": 200,
+    "sha256": "622405113a68e4e08a58b9d4e628291072c69e047121872b40973ff795fc9979",
+    "result": "License legal code fetched successfully; retain attribution and noncommercial restrictions"
   }
 ]

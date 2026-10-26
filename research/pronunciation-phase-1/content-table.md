@@ -2,7 +2,7 @@
 
 Prepared 26 October 2026. **Not independently verified or approved for implementation.**
 
-Names, classes, romanization and initial/ending sounds have been cross-checked against the current application only. The expanded spoken names and word-level transcriptions are proposals pending source and native-speaker checks. No source blocked during this research is cited as supporting a claim.
+Updated source check: the accessible Slice of Thai chart supports the initial sounds of all ten entries and the word transcriptions for ไก่, ไข่ and จาน. The linked consonant-shape chart also supports all ten full-name phonetic sequences and tones, including the mnemonic-word pronunciations. Independent native-speaker verification remains pending; seven word meanings have not been dictionary-checked during this task. See [source-findings.md](source-findings.md). The table is a proposal, not a claim of complete verification.
 
 | Letter | Existing ID | Full spoken name | Existing tone-marked name | Example word · romanization · meaning | Start IPA | End IPA |
 | --- | --- | --- | --- | --- | --- | --- |
