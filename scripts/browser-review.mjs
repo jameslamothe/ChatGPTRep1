@@ -254,5 +254,28 @@ await scenario('whole-deck reset confirms, persists, restores allowance and hand
  assert.match(await p.locator('#message').innerText(),/session only/);
  assert.notEqual(await p.evaluate(()=>localStorage.getItem('little-thai-v1')),'{}');
 });
+await scenario('home-screen shortcut metadata, icon decoding and existing launch URL',async ctx=>{
+ const p=await ctx.newPage();await p.goto(base);
+ assert.equal(await p.title(),'Little Thai');
+ assert.equal(await p.locator('meta[name="apple-mobile-web-app-title"]').getAttribute('content'),'Little Thai');
+ const manifestURL=await p.locator('link[rel="manifest"]').evaluate(e=>e.href);
+ const response=await p.request.get(manifestURL);assert.equal(response.status(),200);
+ assert.match(response.headers()['content-type'],/application\/manifest\+json/);
+ const manifest=await response.json();assert.equal(manifest.short_name,'Little Thai');
+ assert.equal(new URL(manifest.start_url,manifestURL).href,new URL('./',p.url()).href);
+ const cdp=await ctx.newCDPSession(p);const browserManifest=await cdp.send('Page.getAppManifest');
+ assert.equal(browserManifest.errors.length,0);assert.equal(JSON.parse(browserManifest.data).name,'Little Thai');
+ for(const icon of manifest.icons){
+  const url=new URL(icon.src,manifestURL).href;
+  const response=await p.request.get(url);assert.equal(response.status(),200);assert.match(response.headers()['content-type'],/image\/png/);
+  const dimensions=await p.evaluate(async url=>{const image=new Image();image.src=url;await image.decode();return `${image.naturalWidth}x${image.naturalHeight}`;},url);
+  assert.equal(dimensions,icon.sizes);
+ }
+ const touchURL=await p.locator('link[rel="apple-touch-icon"]').evaluate(e=>e.href);
+ assert.equal((await p.request.get(touchURL)).status(),200);
+ await p.evaluate(()=>localStorage.setItem('little-thai-v1',JSON.stringify({'thai-0':{due:Date.now()+86400000,interval:1,reviews:1}})));
+ await p.goto(new URL(manifest.start_url,manifestURL).href);
+ assert.equal(await p.locator('#learned-count').innerText(),'1');
+});
 const response=await (await browser.newContext()).request.get(base+'/not-here.png');assert.equal(response.status(),404);console.log('PASS server missing-file response');
 await browser.close();assert.ok(results.length>0,'No browser scenario matched SCENARIO_FILTER');console.log(`Completed ${results.length} browser scenarios plus HTTP check`);

@@ -43,3 +43,10 @@ On desktop, answers use two columns (character/picture and pronunciation) with a
 The compact phone view uses a short masthead, side-by-side character/picture, reduced whitespace and a smaller progress panel. Thai name text stays at 28px, the main character at 104px, and audio/rating tap targets at least 44px tall. Expanded details remain available and may require scrolling.
 
 “Reset all progress” resets the whole 44-card deck in this browser after confirmation, including review history, due dates and today’s new-card count. It preserves the two-card daily limit. Export a backup first if you may want to restore progress. A storage failure is reported explicitly; the reset then applies only to the current session.
+
+
+## Home-screen shortcut
+
+The app supplies the short name “Little Thai,” a green ก icon, Android 192/512px and maskable icons, and an iPhone 180px Apple touch icon. The manifest starts at the existing app folder to preserve the site origin and stored progress. There is no service worker or guarantee of offline operation.
+
+Existing home-screen shortcuts may retain their cached title/icon. After publication, open the site in the same browser you study in and add a fresh home-screen shortcut; use “Little Thai” if asked for its name. Once the new shortcut looks correct, remove the old shortcut. Do not clear browser data to refresh an icon, because that can delete learning progress. Browser metadata/icon checks do not replace checking the actual Android or iOS launcher.
