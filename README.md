@@ -1,6 +1,6 @@
 # Little Thai
 
-A small Thai consonant flashcard app with spaced repetition. Includes 44 consonants, letter names, rough English transliterations, meanings, and consonant classes. The two obsolete consonants are marked. Transliterations are learning aids and do not convey Thai tones; audio is not included.
+A small Thai consonant flashcard app with spaced repetition. Includes 44 consonants, letter names, rough English transliterations, meanings, and consonant classes. The two obsolete consonants are marked. Transliterations are learning aids with spoken-tone marks (ā mid, à low, â falling, á high, ǎ rising); these marks do not show vowel length. Hyphens separate syllables in a word. Audio is not included.
 
 ## Run
 
