@@ -15,8 +15,8 @@ await scenario('review, keyboard focus, IPA, export, and reload',async ctx=>{
  const p=await ctx.newPage();await p.goto(base);
  await p.locator('#reveal').focus();await p.keyboard.press('Enter');
  assert.equal(await p.locator('.transliteration').evaluate(e=>e===document.activeElement),true);
- assert.equal(await p.locator('details').getAttribute('open'),null);
- await p.locator('summary').click();assert.equal(await p.locator('.ipa-row').isVisible(),true);
+ assert.equal(await p.locator('.pronunciation-details').getAttribute('open'),null);
+ await p.locator('.pronunciation-details summary').click();assert.equal(await p.locator('.ipa-row').isVisible(),true);
  await p.getByRole('button',{name:'Good 1 day',exact:true}).click();
  assert.equal(await p.locator('#reveal').evaluate(e=>e===document.activeElement),true);
  assert.equal(await p.locator('#learned-count').innerText(),'1');
@@ -89,7 +89,7 @@ await scenario('44 card details: pictures, hints, IPA, classes and mobile layout
   assert.equal(await p.locator('#detail .illustration').count(),1);
   assert.equal(await p.locator('#detail .sound-row').count(),2);
   assert.equal(await p.locator('#detail .ipa-row').isVisible(),false);
-  await p.locator('#detail summary').click();assert.equal(await p.locator('#detail .ipa-row').isVisible(),true);
+  await p.locator('#detail .pronunciation-details summary').click();assert.equal(await p.locator('#detail .ipa-row').isVisible(),true);
   assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
  for(const width of [320,375,768,1280]){await p.setViewportSize({width,height:850});assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);}
@@ -109,6 +109,58 @@ await scenario('two new cards per day persist across reload and reset at local m
  assert.equal(await p.locator('#due-count').innerText(),'2');
  assert.match(await p.locator('#new-card-progress').innerText(),/0 of 2/);
  assert.equal(await p.locator('.character').innerText(),'ฃ');
+});
+await scenario('starting-sound audio: ten pilots only, native playback, navigation stop and retry',async ctx=>{
+ await ctx.addInitScript(()=>{
+  const NativeAudio=window.Audio;
+  window.__audioTests=[];
+  window.Audio=function(...args){
+   const audio=new NativeAudio(...args);
+   const entry={audio,playing:false};window.__audioTests.push(entry);
+   audio.addEventListener('playing',()=>{entry.playing=true;});
+   return audio;
+  };
+ });
+ const p=await ctx.newPage(),requested=[];
+ p.on('request',r=>{if(r.url().endsWith('.mp3'))requested.push(r.url());});
+ await p.goto(base);
+ assert.equal(await p.locator('[data-starting-audio]').count(),0);
+ await p.locator('#reveal').click();
+ assert.equal(await p.locator('[data-starting-audio]').count(),1);
+ assert.equal(await p.evaluate(()=>window.__audioTests.length),0); // No autoplay.
+ await p.locator('[data-starting-audio]').click();
+ await p.waitForFunction(()=>window.__audioTests.at(-1)?.playing);
+ assert.match(await p.evaluate(()=>window.__audioTests.at(-1).audio.src),/initial-g\.mp3$/);
+ await p.locator('#browse-tab').click();
+ assert.equal(await p.evaluate(()=>window.__audioTests.every(e=>e.audio.paused)),true);
+ const pilots={'thai-0':'g','thai-1':'k','thai-3':'k','thai-6':'ng','thai-7':'j','thai-9':'ch','thai-19':'d','thai-20':'dt','thai-25':'b','thai-26':'bp'};
+ for(let i=0;i<44;i++){
+  const id=`thai-${i}`;await p.locator(`[data-card="${id}"]`).click();
+  const button=p.locator('[data-starting-audio]');
+  assert.equal(await button.count(),id in pilots?1:0);
+  if(!(id in pilots))continue;
+  assert.equal(await p.evaluate(()=>window.__audioTests.every(e=>e.audio.paused)),true);
+  await button.click();await p.waitForFunction(()=>window.__audioTests.at(-1)?.playing);
+  assert.ok((await p.evaluate(()=>window.__audioTests.at(-1).audio.src)).endsWith(`initial-${pilots[id]}.mp3`));
+  await p.waitForFunction(()=>document.querySelector('[data-starting-audio]').getAttribute('aria-pressed')==='false');
+  assert.equal(await p.locator('.audio-status').innerText(),'');
+  assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ }
+ await p.locator('[data-card="thai-0"]').click();
+ await p.locator('.audio-credit summary').click();
+ assert.equal(await p.locator('.audio-credit a[rel*="license"]').getAttribute('href'),'https://creativecommons.org/licenses/by-nc/3.0/us/');
+ assert.ok(requested.length>=10);assert.equal(requested.some(url=>url.includes('word-')),false);
+ await p.route('**/initial-g.mp3',route=>route.fulfill({status:404,body:'missing'}));
+ await p.locator('[data-starting-audio]').click();
+ await p.waitForFunction(()=>document.querySelector('.audio-status').textContent.includes('retry'));
+ assert.equal(await p.locator('[data-starting-audio]').getAttribute('aria-pressed'),'false');
+ await p.unroute('**/initial-g.mp3');
+ await p.locator('[data-starting-audio]').click();
+ await p.waitForFunction(()=>window.__audioTests.at(-1)?.playing);
+ await p.locator('[data-starting-audio]').click(); // Explicit stop.
+ assert.equal(await p.evaluate(()=>window.__audioTests.every(e=>e.audio.paused)),true);
+ const data=await p.evaluate(()=>JSON.parse(localStorage.getItem('little-thai-v1')||'{}'));
+ assert.deepEqual(data,{}); // Listening/browsing does not consume the daily allowance.
 });
 const response=await (await browser.newContext()).request.get(base+'/not-here.png');assert.equal(response.status(),404);console.log('PASS server missing-file response');
 await browser.close();console.log(`Completed ${results.length} browser scenarios plus HTTP check`);

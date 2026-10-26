@@ -1,3 +1,4 @@
+import {startingAudio,createAudioPlayer} from './audio.js';
 import {illustrations} from './illustrations.js';
 import {cards} from './cards.js';
 import {createProgressStore, validProgress, STORAGE_KEY} from './progress.js';
@@ -6,6 +7,31 @@ import {schedule,dueCards,intervalLabel,newCardsToday,nextAvailableAt,DAILY_NEW_
 const store=createProgressStore({getItem:key=>localStorage.getItem(key),setItem:(key,value)=>localStorage.setItem(key,value)},cards.map(c=>c.id));
 let progress=store.data, mode='study', current=null, revealed=false;
 const content=document.querySelector('#content');
+const audioPlayer=createAudioPlayer();
+let audioButton=null;
+function stopAudio() { audioPlayer.stop();audioButton=null; }
+content.addEventListener('click',e=>{
+ const button=e.target.closest('[data-starting-audio]');
+ if(!button)return;
+ if(button===audioButton){stopAudio();return;}
+ const recording=startingAudio[button.dataset.startingAudio];
+ if(!recording)return;
+ stopAudio();audioButton=button;
+ const status=button.parentElement.querySelector('[role="status"]');
+ audioPlayer.play(recording.url,(state,message)=>{
+  button.textContent=state==='loading'||state==='playing'?'Stop starting sound':'Play starting sound';
+  button.setAttribute('aria-pressed',String(state==='loading'||state==='playing'));
+  status.textContent=message;
+  if(state==='idle'||state==='error')audioButton=null;
+ });
+});
+window.addEventListener('pagehide',stopAudio);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAudio();});
+function audioControl(c) {
+ const recording=startingAudio[c.character];
+ if(!recording)return '';
+ return `<div class="starting-audio"><button class="audio-button" data-starting-audio="${c.character}" aria-pressed="false">Play starting sound</button><p class="audio-status" role="status"></p><p class="audio-hint">Sound + long “aw” vowel, mid tone—not the full letter name.</p><details class="audio-credit"><summary>Recording credit</summary><p>Audio: Chris Pirazzi / <a href="https://slice-of-thai.com/consonant-sounds/#chart" target="_blank" rel="noopener noreferrer">slice-of-thai.com</a>. <a href="${recording.source}" target="_blank" rel="noopener noreferrer">Original recording</a>, unmodified. <a href="https://creativecommons.org/licenses/by-nc/3.0/us/" target="_blank" rel="license noopener noreferrer">CC BY-NC 3.0 US</a> · noncommercial use.</p></details></div>`;
+}
 function illustration(c) {
  const {box,outline}=illustrations[c.character];
  const clip=`illustration-${c.id}`;
@@ -13,7 +39,7 @@ function illustration(c) {
 }
 function soundLabel(c) {
  const s=c.sounds;
- return `<div class="pronunciation"><div class="sound-row"><strong>Start</strong><span>${s.initialHint}</span></div><div class="sound-row"><strong>${s.finalLabel}</strong><span>${s.finalHint}</span></div><details class="pronunciation-details"><summary>Show pronunciation details</summary><div class="ipa-row">Start: <span class="ipa">${s.initialIPA}</span> · ${s.finalLabel}: <span class="ipa">${s.finalIPA}</span></div><p>ʰ = a puff of air · ◌̚ = no audible release. English examples are approximate.</p>${s.note ? `<p>${s.note}</p>` : ''}</details></div>`;
+ return `<div class="pronunciation"><div class="sound-row"><strong>Start</strong><span>${s.initialHint}</span></div>${audioControl(c)}<div class="sound-row"><strong>${s.finalLabel}</strong><span>${s.finalHint}</span></div><details class="pronunciation-details"><summary>Show pronunciation details</summary><div class="ipa-row">Start: <span class="ipa">${s.initialIPA}</span> · ${s.finalLabel}: <span class="ipa">${s.finalIPA}</span></div><p>ʰ = a puff of air · ◌̚ = no audible release. English examples are approximate.</p>${s.note ? `<p>${s.note}</p>` : ''}</details></div>`;
 }
 function answer(c) {
  return `${illustration(c)}<h2 class="transliteration" tabindex="-1">${c.name}</h2><p lang="th">${c.thai}</p><p class="meaning">${c.meaning}</p>${soundLabel(c)}<span class="class-tag">${c.group} class</span>`;
@@ -32,6 +58,7 @@ function revealAnswer() {
  content.querySelector('.transliteration').focus({preventScroll:true});
 }
 function render(){
+ stopAudio();
  updateStorageWarning();
  const due=dueCards(cards,progress);
  document.querySelector('#new-card-progress').textContent=`${newCardsToday(progress)} of ${DAILY_NEW_LIMIT} new cards today · resets at local midnight`;
@@ -46,7 +73,7 @@ function render(){
  document.querySelector('#browse-tab').setAttribute('aria-pressed',String(mode==='browse'));
  if(mode==='browse'){
   content.innerHTML=`<div class="deck-heading"><h2>Your consonant collection</h2><p class="muted">Select a character to explore its name and class.</p></div><div class="deck">${cards.map(c=>`<button data-card="${c.id}" class="mini ${progress[c.id]?'started':''}"><span lang="th">${c.character}</span><small>${c.group}</small></button>`).join('')}</div><div id="detail" aria-live="polite"></div>`;
-  content.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>{const c=cards.find(c=>c.id===b.dataset.card);document.querySelector('#detail').innerHTML=`<div class="detail">${answer(c)}</div>`;});return;
+  content.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>{stopAudio();const c=cards.find(c=>c.id===b.dataset.card);document.querySelector('#detail').innerHTML=`<div class="detail">${answer(c)}</div>`;});return;
  }
  if(!current || !due.some(c=>c.id===current.id)){current=due[0];revealed=false;}
  if(!current){const next=nextAvailableAt(cards,progress);content.innerHTML=`<div class="flashcard empty"><p class="eyebrow">ALL CAUGHT UP</p><h2>Time for a little break.</h2><p>You’ve finished your available cards for now.</p><p class="muted">Next cards available: ${new Date(next).toLocaleString([], {dateStyle:'medium',timeStyle:'short'})}</p><button class="primary" id="explore">Explore the deck</button></div>`;document.querySelector('#explore').onclick=()=>{mode='browse';render();};return;}

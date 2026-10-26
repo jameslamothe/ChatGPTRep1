@@ -1,6 +1,6 @@
 # Little Thai
 
-A small Thai consonant flashcard app with spaced repetition. Includes 44 consonants, letter names, rough English transliterations, meanings, and consonant classes. The two obsolete consonants are marked. Transliterations are learning aids with spoken-tone marks (ā mid, à low, â falling, á high, ǎ rising); these marks do not show vowel length. Hyphens separate syllables in a word. Audio is not included.
+A small Thai consonant flashcard app with spaced repetition. Includes 44 consonants, letter names, rough English transliterations, meanings, and consonant classes. The two obsolete consonants are marked. Transliterations are learning aids with spoken-tone marks (ā mid, à low, â falling, á high, ǎ rising); these marks do not show vowel length. Hyphens separate syllables in a word. Tap-to-play starting-sound recordings are available for the ten pilot letters ก ข ค ง จ ช ด ต บ ป. They demonstrate a mid-tone syllable with a long /ɔː/ vowel, not the full letter name. No example-word playback is included.
 
 ## Run
 
@@ -30,3 +30,10 @@ The browser scenarios cover reviewing and keyboard focus, hidden/expanded IPA, e
 Overdue reviews are presented before new cards. Review intervals are capped at 100 years to prevent unbounded growth. Backups retain the existing flat JSON format and card IDs. Read errors never overwrite the unreadable saved record; importing a valid backup explicitly replaces it. When saving fails, practice remains available in memory with a warning. Browser tabs re-read saved progress before recording reviews, but localStorage is not transactional: truly simultaneous writes can still conflict. Use one active study tab for the safest experience.
 
 New cards are limited to two per local calendar day, counted when first rated. Scheduled reviews are never limited, including Again repeats. The allowance resets at local midnight and does not accumulate. Introduction dates are included in backups. Existing progress without introduction dates is preserved and does not retroactively consume the new allowance. Browsing the deck does not consume the allowance.
+
+
+## Audio credits
+
+The nine shared starting-sound MP3s are unmodified recordings from [The Consonant Sounds of Thai](https://slice-of-thai.com/consonant-sounds/#chart), copyright credit Chris Pirazzi / slice-of-thai.com, licensed under [CC BY-NC 3.0 US](https://creativecommons.org/licenses/by-nc/3.0/us/). Noncommercial use only, with attribution and the license conditions retained. See the on-card recording credit and `research/pronunciation-phase-1/audio-candidates/ATTRIBUTION.md` for provenance. Do not relicense these recordings under a software license. The three research-only word recordings are not wired into the app.
+
+Playback starts only on a tap and stops on card changes, leaving the page or hiding the app. Only one clip plays at a time; unavailable or failed playback can be retried. Files were source-matched and decoded successfully, but independent native-speaker listening review and real iOS/Android device testing remain outstanding. Guaranteed offline playback is not provided.
