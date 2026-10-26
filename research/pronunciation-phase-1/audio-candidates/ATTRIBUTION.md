@@ -1,6 +1,6 @@
 # Audio attribution and reuse conditions
 
-The twelve MP3 files in this directory are unmodified research candidates linked directly by [The Consonant Sounds of Thai](https://slice-of-thai.com/consonant-sounds/), slice-of-thai.com. Site copyright credit: **Chris Pirazzi** (1999–2023 as displayed on the page). Individual speakers are not identified in the inspected page; do not attribute their voices to the site author.
+The 24 MP3 files (21 starting-sound demonstrations and three research-only example words) in this directory are unmodified research candidates linked directly by [The Consonant Sounds of Thai](https://slice-of-thai.com/consonant-sounds/), slice-of-thai.com. Site copyright credit: **Chris Pirazzi** (1999–2023 as displayed on the page). Individual speakers are not identified in the inspected page; do not attribute their voices to the site author.
 
 The source page explicitly makes its audio files available under [Creative Commons Attribution-NonCommercial 3.0 United States (CC BY-NC 3.0 US)](https://creativecommons.org/licenses/by-nc/3.0/us/). See the [license legal code](https://creativecommons.org/licenses/by-nc/3.0/us/legalcode).
 

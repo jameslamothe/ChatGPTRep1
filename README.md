@@ -1,6 +1,6 @@
 # Little Thai
 
-A small Thai consonant flashcard app with spaced repetition. Includes 44 consonants, letter names, rough English transliterations, meanings, and consonant classes. The two obsolete consonants are marked. Transliterations are learning aids with spoken-tone marks (ā mid, à low, â falling, á high, ǎ rising); these marks do not show vowel length. Hyphens separate syllables in a word. Tap-to-play starting-sound recordings are available for the ten pilot letters ก ข ค ง จ ช ด ต บ ป. They demonstrate a mid-tone syllable with a long /ɔː/ vowel, not the full letter name. No example-word playback is included.
+A small Thai consonant flashcard app with spaced repetition. Includes 44 consonants, letter names, rough English transliterations, meanings, and consonant classes. The two obsolete consonants are marked. Transliterations are learning aids with spoken-tone marks (ā mid, à low, â falling, á high, ǎ rising); these marks do not show vowel length. Hyphens separate syllables in a word. Tap-to-play starting-sound recordings are available for all 44 consonants. They demonstrate a mid-tone syllable with a long /ɔː/ vowel, not the full letter name. No example-word playback is included.
 
 ## Run
 
@@ -34,6 +34,6 @@ New cards are limited to two per local calendar day, counted when first rated. S
 
 ## Audio credits
 
-The nine shared starting-sound MP3s are unmodified recordings from [The Consonant Sounds of Thai](https://slice-of-thai.com/consonant-sounds/#chart), copyright credit Chris Pirazzi / slice-of-thai.com, licensed under [CC BY-NC 3.0 US](https://creativecommons.org/licenses/by-nc/3.0/us/). Noncommercial use only, with attribution and the license conditions retained. See the on-card recording credit and `research/pronunciation-phase-1/audio-candidates/ATTRIBUTION.md` for provenance. Do not relicense these recordings under a software license. The three research-only word recordings are not wired into the app.
+The 21 shared starting-sound MP3s are unmodified recordings from [The Consonant Sounds of Thai](https://slice-of-thai.com/consonant-sounds/#chart), copyright credit Chris Pirazzi / slice-of-thai.com, licensed under [CC BY-NC 3.0 US](https://creativecommons.org/licenses/by-nc/3.0/us/). Noncommercial use only, with attribution and the license conditions retained. See the on-card recording credit and `research/pronunciation-phase-1/audio-candidates/ATTRIBUTION.md` for provenance. Do not relicense these recordings under a software license. The three research-only word recordings are not wired into the app.
 
 Playback starts only on a tap and stops on card changes, leaving the page or hiding the app. Only one clip plays at a time; unavailable or failed playback can be retried. Files were source-matched and decoded successfully, but independent native-speaker listening review and real iOS/Android device testing remain outstanding. Guaranteed offline playback is not provided.

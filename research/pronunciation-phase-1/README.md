@@ -2,6 +2,8 @@
 
 Prepared 26 October 2026; updated after network access was enabled. This is a research dossier, not an app implementation. No card data, playback controls, review schedules or saved progress were changed.
 
+For the later all-44-letter starting-sound rollout, see [the coverage update](../starting-sounds-all-consonants.md). The counts below describe the original ten-letter sourcing phase.
+
 ## Updated result
 
 The Slice of Thai chart and the linked CC BY-NC 3.0 US license are now accessible and inspected. See [source-findings.md](source-findings.md) for the current coverage, rights evidence and remaining gaps.

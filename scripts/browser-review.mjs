@@ -110,7 +110,7 @@ await scenario('two new cards per day persist across reload and reset at local m
  assert.match(await p.locator('#new-card-progress').innerText(),/0 of 2/);
  assert.equal(await p.locator('.character').innerText(),'ฃ');
 });
-await scenario('starting-sound audio: ten pilots only, native playback, navigation stop and retry',async ctx=>{
+await scenario('starting-sound audio: all 44 consonants, native playback, navigation stop and retry',async ctx=>{
  await ctx.addInitScript(()=>{
   const NativeAudio=window.Audio;
   window.__audioTests=[];
@@ -133,15 +133,16 @@ await scenario('starting-sound audio: ten pilots only, native playback, navigati
  assert.match(await p.evaluate(()=>window.__audioTests.at(-1).audio.src),/initial-g\.mp3$/);
  await p.locator('#browse-tab').click();
  assert.equal(await p.evaluate(()=>window.__audioTests.every(e=>e.audio.paused)),true);
- const pilots={'thai-0':'g','thai-1':'k','thai-3':'k','thai-6':'ng','thai-7':'j','thai-9':'ch','thai-19':'d','thai-20':'dt','thai-25':'b','thai-26':'bp'};
+ const groups={'ก':'g','ขฃคฅฆ':'k','ง':'ng','จ':'j','ฉชฌ':'ch','ซศษส':'s','ญย':'y','ฎด':'d','ฏต':'dt','ฐฑฒถทธ':'t','ณน':'n','บ':'b','ป':'bp','ผพภ':'p','ฝฟ':'f','ม':'m','ร':'r','ลฬ':'l','ว':'w','หฮ':'h','อ':'glottal'};
+ const expected=Object.fromEntries(Object.entries(groups).flatMap(([letters,code])=>[...letters].map(letter=>[letter,code])));
  for(let i=0;i<44;i++){
   const id=`thai-${i}`;await p.locator(`[data-card="${id}"]`).click();
   const button=p.locator('[data-starting-audio]');
-  assert.equal(await button.count(),id in pilots?1:0);
-  if(!(id in pilots))continue;
+  assert.equal(await button.count(),1);
+  const letter=await button.getAttribute('data-starting-audio');
   assert.equal(await p.evaluate(()=>window.__audioTests.every(e=>e.audio.paused)),true);
   await button.click();await p.waitForFunction(()=>window.__audioTests.at(-1)?.playing);
-  assert.ok((await p.evaluate(()=>window.__audioTests.at(-1).audio.src)).endsWith(`initial-${pilots[id]}.mp3`));
+  assert.ok((await p.evaluate(()=>window.__audioTests.at(-1).audio.src)).endsWith(`initial-${expected[letter]}.mp3`));
   await p.waitForFunction(()=>document.querySelector('[data-starting-audio]').getAttribute('aria-pressed')==='false');
   assert.equal(await p.locator('.audio-status').innerText(),'');
   assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
@@ -149,7 +150,7 @@ await scenario('starting-sound audio: ten pilots only, native playback, navigati
  await p.locator('[data-card="thai-0"]').click();
  await p.locator('.audio-credit summary').click();
  assert.equal(await p.locator('.audio-credit a[rel*="license"]').getAttribute('href'),'https://creativecommons.org/licenses/by-nc/3.0/us/');
- assert.ok(requested.length>=10);assert.equal(requested.some(url=>url.includes('word-')),false);
+ assert.ok(requested.length>=44);assert.equal(requested.some(url=>url.includes('word-')),false);
  await p.route('**/initial-g.mp3',route=>route.fulfill({status:404,body:'missing'}));
  await p.locator('[data-starting-audio]').click();
  await p.waitForFunction(()=>document.querySelector('.audio-status').textContent.includes('retry'));

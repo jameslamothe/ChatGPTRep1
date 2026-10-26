@@ -10,10 +10,13 @@ class FakeAudio extends EventTarget {
  play(){return this.start?.()||Promise.resolve();}
  pause(){this.paused=true;}
 }
-test('exactly ten pilot letters share nine original starting-sound files',async()=>{
- assert.deepEqual(Object.keys(startingAudio).sort(),[...'กขคงจชดตบป'].sort());
+test('all 44 consonants share 21 original starting-sound files',async()=>{
+ assert.deepEqual(Object.keys(startingAudio).sort(),[...'กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ'].sort());
  assert.equal(startingAudio['ข'].url,startingAudio['ค'].url);
- assert.equal(new Set(Object.values(startingAudio).map(a=>a.url)).size,9);
+ assert.equal(startingAudio['ผ'].url,startingAudio['ภ'].url);
+ assert.match(startingAudio['อ'].url,/initial-glottal\.mp3$/);
+ assert.match(startingAudio['ร'].url,/initial-r\.mp3$/);
+ assert.equal(new Set(Object.values(startingAudio).map(a=>a.url)).size,21);
  const manifest=JSON.parse(await readFile(new URL('../research/pronunciation-phase-1/audio-candidates.json',import.meta.url)));
  for(const a of Object.values(startingAudio)){
   assert.match(a.url,/initial-[a-z]+\.mp3$/);

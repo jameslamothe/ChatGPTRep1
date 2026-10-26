@@ -1,10 +1,20 @@
 // Unmodified recordings: Chris Pirazzi / slice-of-thai.com, CC BY-NC 3.0 US.
 // Each clip is a mid-tone syllable with /ɔː/, not a full letter name.
-const codes = {'ก':'g','ข':'k','ค':'k','ง':'ng','จ':'j','ช':'ch','ด':'d','ต':'dt','บ':'b','ป':'bp'};
-export const startingAudio = Object.fromEntries(Object.entries(codes).map(([letter,code])=>[letter,{
- url:new URL(`../research/pronunciation-phase-1/audio-candidates/initial-${code}.mp3`,import.meta.url).href,
- source:`https://slice-of-thai.com/s/pc-${code}/pc-${code}.mp3`
-}]));
+import {cards} from './cards.js';
+const codesBySound = {
+ 'k':'g','kʰ':'k','ŋ':'ng','tɕ':'j','tɕʰ':'ch','s':'s','j':'y',
+ 'd':'d','t':'dt','tʰ':'t','n':'n','b':'b','p':'bp','pʰ':'p',
+ 'f':'f','m':'m','r':'r','l':'l','w':'w','h':'h','ʔ':'_294_'
+};
+export const startingAudio = Object.fromEntries(cards.map(card=>{
+ const code=codesBySound[card.sounds.initial];
+ if(!code)throw new Error(`Missing starting-sound recording for ${card.character}`);
+ const filename=code==='_294_'?'glottal':code;
+ return [card.character,{
+  url:new URL(`../research/pronunciation-phase-1/audio-candidates/initial-${filename}.mp3`,import.meta.url).href,
+  source:`https://slice-of-thai.com/s/pc-${code}/pc-${code}.mp3`
+ }];
+}));
 
 // Keep one clip active. Ignore late events/promises after navigation or a new tap.
 export function createAudioPlayer(makeAudio=url=>new Audio(url)) {
