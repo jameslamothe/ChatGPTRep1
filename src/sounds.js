@@ -42,7 +42,10 @@ export function consonantSounds(character) {
  const note=character==='ฑ' ? 'ฑ starts with d in some words; the usual starting sound is shown here.' :
   character==='ฃ'||character==='ฅ' ? 'Obsolete letter. These are its conventional modern sounds; you will rarely see it in words.' :
   glide ? 'This ending is part of a vowel combination, rather than a separate final consonant.' : '';
- return {initial,final,initialHint:initialHints[initial],
+ const ipaNotes=[];
+ if(initial.includes('ʰ'))ipaNotes.push('ʰ marks a puff of air in the starting sound.');
+ if(final?.includes('̚'))ipaNotes.push(`Final /${final}/ ends without an audible release.`);
+ return {initial,final,ipaNotes,initialHint:initialHints[initial],
   finalHint:final ? finalHints[final] : 'No regular syllable-ending sound',
   finalLabel:glide?'Ending glide':'End',note,
   initialIPA:character==='ฑ'?'/tʰ/ (sometimes /d/)':`/${initial}/`,

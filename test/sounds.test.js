@@ -28,3 +28,14 @@ test('nasal endings, glides, unused endings and exceptions',()=>{
  assert.match(consonantSounds('อ').initialHint,/vowel carrier/);
  assert.throws(()=>consonantSounds('X'));
 });
+test('IPA explanations only describe symbols present on the current card',()=>{
+ const s=consonantSounds('ซ');
+ assert.equal(s.ipaNotes.length,1);assert.match(s.ipaNotes[0],/\/t̚\//);assert.doesNotMatch(s.ipaNotes.join(' '),/puff|ʰ/);
+ const kh=consonantSounds('ค');assert.equal(kh.ipaNotes.length,2);assert.match(kh.ipaNotes[0],/puff/);assert.match(kh.ipaNotes[1],/\/k̚\//);
+ assert.deepEqual(consonantSounds('ม').ipaNotes,[]);
+ assert.equal(consonantSounds('ผ').ipaNotes.length,1);assert.match(consonantSounds('ผ').ipaNotes[0],/puff/);
+ for(const c of cards){
+  assert.equal(c.sounds.ipaNotes.some(n=>n.includes('puff')),c.sounds.initial.includes('ʰ'));
+  assert.equal(c.sounds.ipaNotes.some(n=>n.includes('release')),Boolean(c.sounds.final?.includes('̚')));
+ }
+});

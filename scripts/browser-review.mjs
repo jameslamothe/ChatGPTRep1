@@ -90,6 +90,10 @@ await scenario('44 card details: pictures, hints, IPA, classes and mobile layout
   assert.equal(await p.locator('#detail .sound-row').count(),2);
   assert.equal(await p.locator('#detail .ipa-row').isVisible(),false);
   await p.locator('#detail .pronunciation-details summary').click();assert.equal(await p.locator('#detail .ipa-row').isVisible(),true);
+  const ipa=await p.locator('#detail .ipa-row').innerText();
+  const notes=await p.locator('#detail .ipa-notes').count() ? await p.locator('#detail .ipa-notes').innerText() : '';
+  assert.equal(notes.includes('puff'),ipa.includes('ʰ'));
+  assert.equal(notes.includes('release'),ipa.includes('̚'));
   assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
  for(const width of [320,375,768,1280]){await p.setViewportSize({width,height:850});assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);}

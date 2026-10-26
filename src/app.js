@@ -39,7 +39,7 @@ function illustration(c) {
 }
 function soundLabel(c) {
  const s=c.sounds;
- return `<div class="pronunciation"><div class="sound-row"><strong>Start</strong><span>${s.initialHint}</span></div>${audioControl(c)}<div class="sound-row"><strong>${s.finalLabel}</strong><span>${s.finalHint}</span></div><details class="pronunciation-details"><summary>Show pronunciation details</summary><div class="ipa-row">Start: <span class="ipa">${s.initialIPA}</span> · ${s.finalLabel}: <span class="ipa">${s.finalIPA}</span></div><p>ʰ = a puff of air · ◌̚ = no audible release. English examples are approximate.</p>${s.note ? `<p>${s.note}</p>` : ''}</details></div>`;
+ return `<div class="pronunciation"><div class="sound-row"><strong>Start</strong><span>${s.initialHint}</span></div>${audioControl(c)}<div class="sound-row"><strong>${s.finalLabel}</strong><span>${s.finalHint}</span></div><details class="pronunciation-details"><summary>Show pronunciation details</summary><div class="ipa-row">Start: <span class="ipa">${s.initialIPA}</span> · ${s.finalLabel}: <span class="ipa">${s.finalIPA}</span></div>${s.ipaNotes.length ? `<p class="ipa-notes">${s.ipaNotes.join(' ')}</p>` : ''}<p>English examples are approximate.</p>${s.note ? `<p>${s.note}</p>` : ''}</details></div>`;
 }
 function answer(c) {
  return `<div class="answer-visual"><div class="character" lang="th">${c.character}</div>${illustration(c)}<p class="meaning">${c.meaning}</p></div><div class="answer-copy"><h2 class="transliteration" tabindex="-1">${c.name}</h2><p lang="th">${c.thai}</p>${soundLabel(c)}<span class="class-tag">${c.group} class</span></div>`;
