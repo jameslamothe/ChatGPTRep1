@@ -1,0 +1,32 @@
+[
+  {
+    "source": "thai-notes",
+    "url": "https://thai-notes.com/games/alphabetcards.html",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source": "slice-of-thai",
+    "url": "https://slice-of-thai.com/consonant-sounds/",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source": "kodthai",
+    "url": "https://kodthai.com/vowels-consonants-chart/",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source": "commons",
+    "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=Thai%20consonants%20audio&gsrnamespace=6&gsrlimit=20&prop=imageinfo&iiprop=url%7Cextmetadata",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source": "wiktionary-kai",
+    "url": "https://en.wiktionary.org/wiki/%E0%B9%84%E0%B8%81%E0%B9%88",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "source": "wikimedia-rest",
+    "url": "https://commons.wikimedia.org/wiki/Category:Thai_pronunciation",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]

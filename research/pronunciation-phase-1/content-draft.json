@@ -1,0 +1,217 @@
+{
+  "preparedOn": "2026-10-26",
+  "status": "draft_not_approved_for_teaching",
+  "notes": "Transcriptions are proposed from the existing app and linguistic reasoning; not externally verified. No audio assets have been selected.",
+  "cards": [
+    {
+      "cardId": "thai-0",
+      "character": "ก",
+      "traditionalName": "กอ ไก่",
+      "existingNameRomanization": "kō kài",
+      "consonantClass": "Mid",
+      "initialIPA": "/k/",
+      "finalIPA": "/k̚/",
+      "initialGuidance": "k as in “ski”—no puff of air",
+      "example": {
+        "thai": "ไก่",
+        "romanization": "kài",
+        "meaning": "chicken"
+      },
+      "proposedNameIPA": "/kɔː˧ kaj˨˩/",
+      "proposedWordIPA": "/kaj˨˩/",
+      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
+      "contentSourceIds": [],
+      "reviewedBy": null,
+      "reviewDate": null
+    },
+    {
+      "cardId": "thai-1",
+      "character": "ข",
+      "traditionalName": "ขอ ไข่",
+      "existingNameRomanization": "khǒ khài",
+      "consonantClass": "High",
+      "initialIPA": "/kʰ/",
+      "finalIPA": "/k̚/",
+      "initialGuidance": "k as in “kite”—with a puff of air",
+      "example": {
+        "thai": "ไข่",
+        "romanization": "khài",
+        "meaning": "egg"
+      },
+      "proposedNameIPA": "/kʰɔː˩˩˦ kʰaj˨˩/",
+      "proposedWordIPA": "/kʰaj˨˩/",
+      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
+      "contentSourceIds": [],
+      "reviewedBy": null,
+      "reviewDate": null
+    },
+    {
+      "cardId": "thai-3",
+      "character": "ค",
+      "traditionalName": "คอ ควาย",
+      "existingNameRomanization": "khō khwāi",
+      "consonantClass": "Low",
+      "initialIPA": "/kʰ/",
+      "finalIPA": "/k̚/",
+      "initialGuidance": "k as in “kite”—with a puff of air",
+      "example": {
+        "thai": "ควาย",
+        "romanization": "khwāi",
+        "meaning": "water buffalo"
+      },
+      "proposedNameIPA": "/kʰɔː˧ kʰwaːj˧/",
+      "proposedWordIPA": "/kʰwaːj˧/",
+      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
+      "contentSourceIds": [],
+      "reviewedBy": null,
+      "reviewDate": null
+    },
+    {
+      "cardId": "thai-6",
+      "character": "ง",
+      "traditionalName": "งอ งู",
+      "existingNameRomanization": "ngō ngū",
+      "consonantClass": "Low",
+      "initialIPA": "/ŋ/",
+      "finalIPA": "/ŋ/",
+      "initialGuidance": "ng as in “sing,” but at the start of the syllable",
+      "example": {
+        "thai": "งู",
+        "romanization": "ngū",
+        "meaning": "snake"
+      },
+      "proposedNameIPA": "/ŋɔː˧ ŋuː˧/",
+      "proposedWordIPA": "/ŋuː˧/",
+      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
+      "contentSourceIds": [],
+      "reviewedBy": null,
+      "reviewDate": null
+    },
+    {
+      "cardId": "thai-7",
+      "character": "จ",
+      "traditionalName": "จอ จาน",
+      "existingNameRomanization": "chō chān",
+      "consonantClass": "Mid",
+      "initialIPA": "/tɕ/",
+      "finalIPA": "/t̚/",
+      "initialGuidance": "a ch-like sound—no puff of air; not English j",
+      "example": {
+        "thai": "จาน",
+        "romanization": "chān",
+        "meaning": "plate"
+      },
+      "proposedNameIPA": "/tɕɔː˧ tɕaːn˧/",
+      "proposedWordIPA": "/tɕaːn˧/",
+      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
+      "contentSourceIds": [],
+      "reviewedBy": null,
+      "reviewDate": null
+    },
+    {
+      "cardId": "thai-9",
+      "character": "ช",
+      "traditionalName": "ชอ ช้าง",
+      "existingNameRomanization": "chō cháng",
+      "consonantClass": "Low",
+      "initialIPA": "/tɕʰ/",
+      "finalIPA": "/t̚/",
+      "initialGuidance": "a ch-like sound—with a puff of air",
+      "example": {
+        "thai": "ช้าง",
+        "romanization": "cháng",
+        "meaning": "elephant"
+      },
+      "proposedNameIPA": "/tɕʰɔː˧ tɕʰaːŋ˦˥/",
+      "proposedWordIPA": "/tɕʰaːŋ˦˥/",
+      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
+      "contentSourceIds": [],
+      "reviewedBy": null,
+      "reviewDate": null
+    },
+    {
+      "cardId": "thai-19",
+      "character": "ด",
+      "traditionalName": "ดอ เด็ก",
+      "existingNameRomanization": "dō dèk",
+      "consonantClass": "Mid",
+      "initialIPA": "/d/",
+      "finalIPA": "/t̚/",
+      "initialGuidance": "d as in “day”",
+      "example": {
+        "thai": "เด็ก",
+        "romanization": "dèk",
+        "meaning": "child"
+      },
+      "proposedNameIPA": "/dɔː˧ dek˨˩/",
+      "proposedWordIPA": "/dek˨˩/",
+      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
+      "contentSourceIds": [],
+      "reviewedBy": null,
+      "reviewDate": null
+    },
+    {
+      "cardId": "thai-20",
+      "character": "ต",
+      "traditionalName": "ตอ เต่า",
+      "existingNameRomanization": "tō tào",
+      "consonantClass": "Mid",
+      "initialIPA": "/t/",
+      "finalIPA": "/t̚/",
+      "initialGuidance": "t as in “stop”—no puff of air",
+      "example": {
+        "thai": "เต่า",
+        "romanization": "tào",
+        "meaning": "turtle"
+      },
+      "proposedNameIPA": "/tɔː˧ taw˨˩/",
+      "proposedWordIPA": "/taw˨˩/",
+      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
+      "contentSourceIds": [],
+      "reviewedBy": null,
+      "reviewDate": null
+    },
+    {
+      "cardId": "thai-25",
+      "character": "บ",
+      "traditionalName": "บอ ใบไม้",
+      "existingNameRomanization": "bō bāi-mái",
+      "consonantClass": "Mid",
+      "initialIPA": "/b/",
+      "finalIPA": "/p̚/",
+      "initialGuidance": "b as in “bat”",
+      "example": {
+        "thai": "ใบไม้",
+        "romanization": "bāi-mái",
+        "meaning": "leaf"
+      },
+      "proposedNameIPA": "/bɔː˧ baj˧ maːj˦˥/",
+      "proposedWordIPA": "/baj˧ maːj˦˥/",
+      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
+      "contentSourceIds": [],
+      "reviewedBy": null,
+      "reviewDate": null
+    },
+    {
+      "cardId": "thai-26",
+      "character": "ป",
+      "traditionalName": "ปอ ปลา",
+      "existingNameRomanization": "pō plā",
+      "consonantClass": "Mid",
+      "initialIPA": "/p/",
+      "finalIPA": "/p̚/",
+      "initialGuidance": "p as in “spin”—no puff of air",
+      "example": {
+        "thai": "ปลา",
+        "romanization": "plā",
+        "meaning": "fish"
+      },
+      "proposedNameIPA": "/pɔː˧ plaː˧/",
+      "proposedWordIPA": "/plaː˧/",
+      "contentStatus": "draft_pending_external_source_and_native_speaker_review",
+      "contentSourceIds": [],
+      "reviewedBy": null,
+      "reviewDate": null
+    }
+  ]
+}
